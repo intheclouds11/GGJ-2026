@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9088924233189677978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Generic music A
+  m_EditorClassIdentifier: 
+  Path: event:/Generic music A
+  Guid:
+    Data1: -419831670
+    Data2: 1247688238
+    Data3: 744121783
+    Data4: 1685332491
+  Banks:
+  - {fileID: 4626054594626005424}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 131454
+--- !u!114 &-9039559196440266634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Generic music B
+  m_EditorClassIdentifier: 
+  Path: event:/Generic music B
+  Guid:
+    Data1: 66255642
+    Data2: 1161194270
+    Data3: -1350732917
+    Data4: 1666485714
+  Banks:
+  - {fileID: 4626054594626005424}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7204437795421410080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../Fmod projects/GGJ_2026/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639054268809010712
+  FileSizes:
+  - Name: Desktop
+    Value: 1074
+  Exists: 1
+--- !u!114 &-3759160686194931390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../Fmod projects/GGJ_2026/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639054268809020741
+  FileSizes:
+  - Name: Desktop
+    Value: 882
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -3759160686194931390}
+  - {fileID: -7204437795421410080}
+  - {fileID: 4626054594626005424}
+  EditorEvents:
+  - {fileID: -9039559196440266634}
+  - {fileID: -9088924233189677978}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -7204437795421410080}
+  StringsBanks:
+  - {fileID: -3759160686194931390}
+  cacheVersion: 131858
+  cacheTime: 639054268825799217
+  SerializableEventsDict:
+  - key: event:/Generic music B
+    index: 0
+  - key: event:/Generic music A
+    index: 1
+--- !u!114 &4626054594626005424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Swift's Music Bank.bank
+  m_EditorClassIdentifier: 
+  Path: ../../Fmod projects/GGJ_2026/Build/Desktop/Swift's Music Bank.bank
+  Name: Swift's Music Bank
+  StudioPath: bank:/Swift's Music Bank
+  lastModified: 639054268825799217
+  FileSizes:
+  - Name: Desktop
+    Value: 1894944
+  Exists: 1
