@@ -1,0 +1,16 @@
+OVDF v1.0
+intheclouds.CameraShaker, Assembly-CSharp
+
+# StartShake
+Position: $root:0
++ [Sirenix.OdinInspector.ButtonAttribute]
+	Name = "Shake"
+	buttonAlignment = 0
+	HasDefinedButtonAlignment = True
+	DisplayParameters = True
+	drawResult = False
+	drawResultIsSet = True
+	stretch = False
+	HasDefinedStretch = True
+	Expanded = False
+	Style = CompactBox

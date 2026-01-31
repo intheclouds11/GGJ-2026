@@ -1,0 +1,23 @@
+OVDF v1.0
+intheclouds.Destroyable, Assembly-CSharp
+
+# $Tw4Lw2Tj9qJNtGxV8MfuuY
+Position: $root:2
++ [Sirenix.OdinInspector.ShowIfGroupAttribute]
+	VisibleIf = "@_useFragments"
+
+# _baseMesh
+Position: $Tw4Lw2Tj9qJNtGxV8MfuuY:1
+
+# _hitReactMesh
+Position: $Tw4Lw2Tj9qJNtGxV8MfuuY:2
+
+# _fragmentsParent
+Position: $Tw4Lw2Tj9qJNtGxV8MfuuY:3
+
+# _rbsToEnable
++ [Sirenix.OdinInspector.HideIfAttribute]
+	Condition = "@_useFragments"
+
+# _destroyForceModifier
+Position: $Tw4Lw2Tj9qJNtGxV8MfuuY:0

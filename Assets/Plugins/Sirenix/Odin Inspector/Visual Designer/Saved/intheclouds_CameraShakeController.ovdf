@@ -1,0 +1,7 @@
+OVDF v1.0
+intheclouds.CameraShakeController, Assembly-CSharp
+
+# StartHitShake(bool interrupt)
+Position: $root:1
+Visibility: Shown
++ [Sirenix.OdinInspector.HideInEditorModeAttribute]

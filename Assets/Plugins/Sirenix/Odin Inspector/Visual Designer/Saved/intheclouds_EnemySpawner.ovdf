@@ -1,0 +1,7 @@
+OVDF v1.0
+intheclouds.EnemySpawner, Assembly-CSharp
+
+# Enemy
++ [Sirenix.OdinInspector.RequiredAttribute]
+	MessageType = Warning
+	ErrorMessage = "No Enemy GO slotted. Will try to find enemy in children."

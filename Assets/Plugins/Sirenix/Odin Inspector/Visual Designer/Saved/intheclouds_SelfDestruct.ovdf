@@ -1,0 +1,17 @@
+OVDF v1.0
+intheclouds.SelfDestruct, Assembly-CSharp
+
+# _lifetime
++ [Sirenix.OdinInspector.HideIfAttribute]
+	Condition = "@_useLifetimeRange"
+
+# _lifetimeMin
++ [Sirenix.OdinInspector.ShowIfAttribute]
+	Condition = "@_useLifetimeRange"
+
+# _lifetimeMax
++ [Sirenix.OdinInspector.ShowIfAttribute]
+	Condition = "@_useLifetimeRange"
+
+# _useLifetimeRange
+Position: $root:0

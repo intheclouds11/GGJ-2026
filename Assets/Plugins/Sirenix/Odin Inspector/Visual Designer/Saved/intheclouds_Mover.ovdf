@@ -1,0 +1,56 @@
+OVDF v1.0
+intheclouds.Mover, Assembly-CSharp
+
+# $UAovWaiqoYaVAbupNCjuoW
+Position: $root:3
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $76nUPU3cGHKbFx6EMUzTVY
+Position: $UAovWaiqoYaVAbupNCjuoW:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $zLYW6KT2CmpZfzn3MdERv
+Position: $UAovWaiqoYaVAbupNCjuoW:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $Q4J7CQuj39xpD88QNBL675
+Position: $root:5
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $XaMekAPdQfS2hpdX74WGx1
+Position: $Q4J7CQuj39xpD88QNBL675:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $NbX7BnCwDwcu5Wx1ifoMgE
+Position: $Q4J7CQuj39xpD88QNBL675:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# _startLocalPosition
++ [Sirenix.OdinInspector.PropertyTooltipAttribute]
+	Tooltip = "Move to start position, set, then move to end position"
+
+# SetStartLocalPosition
+Position: $root:1
+
+# SetStartPosition
+Position: $76nUPU3cGHKbFx6EMUzTVY:0
+
+# MoveToStartPosition
+Position: $zLYW6KT2CmpZfzn3MdERv:0
+
+# _isMoving
+Position: $root:0
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# MoveToEndPosition
+Position: $NbX7BnCwDwcu5Wx1ifoMgE:0
+
+# SetEndPosition
+Position: $XaMekAPdQfS2hpdX74WGx1:0
+
+# _startPosition
+Position: $root:2
+
+# _endPosition
+Position: $root:4

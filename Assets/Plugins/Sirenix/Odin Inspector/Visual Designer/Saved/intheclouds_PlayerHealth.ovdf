@@ -1,0 +1,27 @@
+OVDF v1.0
+intheclouds.PlayerHealth, Assembly-CSharp
+
+# $ThJQZovVi978AEXSdxhf2m
+Position: $root:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $S2HpW8EfVddSwWnyZPx85T
+Position: $ThJQZovVi978AEXSdxhf2m:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $Crkr1t3DZg8QVDPpSicW8t
+Position: $ThJQZovVi978AEXSdxhf2m:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# "JqnfKrjj9aXpc7CKqyrdWJ"
+Position: $root:0
+* [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# ApplyPoison
+Position: $Crkr1t3DZg8QVDPpSicW8t:0
+
+# RecoverHP(int amount, bool wasAutoHeal)
+Position: $S2HpW8EfVddSwWnyZPx85T:0
+
+# _maxHealth
+Position: $root:2

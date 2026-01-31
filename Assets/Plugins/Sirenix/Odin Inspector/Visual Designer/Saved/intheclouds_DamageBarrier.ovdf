@@ -1,0 +1,13 @@
+OVDF v1.0
+intheclouds.DamageBarrier, Assembly-CSharp
+
+# _barrierRecoverDelay
++ [Sirenix.OdinInspector.ShowIfAttribute]
+	Condition = "@_autoRecover"
+
+# _damagedCount
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# Active
+Visibility: Shown

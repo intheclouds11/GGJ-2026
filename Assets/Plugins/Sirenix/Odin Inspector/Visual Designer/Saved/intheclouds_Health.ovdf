@@ -1,0 +1,34 @@
+OVDF v1.0
+intheclouds.Health, Assembly-CSharp
+
+# $JqnfKrjj9aXpc7CKqyrdWJ
+Position: $root:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $ACdCZkuihyV6g5H8U5nhny
+Position: $JqnfKrjj9aXpc7CKqyrdWJ:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $6EKBULvMEdVvkHRauiS7mU
+Position: $JqnfKrjj9aXpc7CKqyrdWJ:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# RestoreFullHealth
+Position: $6EKBULvMEdVvkHRauiS7mU:0
+Visibility: Shown
+* [Sirenix.OdinInspector.ButtonAttribute]
+	Icon = SuitHeartFill
+	stretch = True
+	HasDefinedStretch = True
+
+# TakeDamage(int damage, ImpulseMovement knockback, bool canKill)
+Position: $ACdCZkuihyV6g5H8U5nhny:0
+Visibility: Shown
+
+# _maxHealth
+Position: $root:1
+
+# _diedSFXPitch
+Position: $root:16
++ [Sirenix.OdinInspector.HideIfAttribute]
+	Condition = "@_diedSFXRandomizePitch"

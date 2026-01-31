@@ -1,0 +1,89 @@
+OVDF v1.0
+intheclouds.WaveManager, Assembly-CSharp
+
+# $4NqcVQHMw9MXuftvtggEhc
+Position: $root:3
++ [Sirenix.OdinInspector.TitleGroupAttribute]
+	GroupName = "Scene Enemies"
+
+# $7DpyJSLdHpyvwsHUrN2R1u
+Position: $root:2
++ [Sirenix.OdinInspector.TitleGroupAttribute]
+	GroupName = "Arena"
+
+# _triggerEntered
+Position: $7DpyJSLdHpyvwsHUrN2R1u:1
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _waitingForAllEnemiesDefeated
+Position: $root:3
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _checkpoint
+Position: $7DpyJSLdHpyvwsHUrN2R1u:3
+
+# _arenaBlockers
+Position: $7DpyJSLdHpyvwsHUrN2R1u:2
+
+# _spawnAfterAllDefeated
+Position: $4NqcVQHMw9MXuftvtggEhc:1
+
+# _currentSpawnDataIndex
+Position: $root:8
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _waitingForSceneEnemiesDefeated
+Position: $4NqcVQHMw9MXuftvtggEhc:2
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _waitingForSpawnedEnemiesDefeated
+Position: $root:7
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _spawnedEnemies
+Position: $root:4
+Visibility: Shown
++ [Sirenix.OdinInspector.TitleAttribute]
+	Title = "Spawning Enemies"
+
+# _sceneEnemies
+Position: $4NqcVQHMw9MXuftvtggEhc:0
+Visibility: Shown
+
+# _spawnData
+Position: $root:9
+
+# _startSpawningDelay
+Position: $4NqcVQHMw9MXuftvtggEhc:3
+
+# <AllEnemiesSpawnedCoroutine>b__21_0
+Position: $root:20
+
+# _waitForTrigger
+Position: $7DpyJSLdHpyvwsHUrN2R1u:0
++ [Sirenix.OdinInspector.PropertyTooltipAttribute]
+	Tooltip = "If false, enemies spawn after all scene enemies defeated"
+
+# _spawnPointCheckOverlapLayers
+Position: $root:6
++ [Sirenix.OdinInspector.LabelTextAttribute]
+	Text = "Spawn Point Overlap Layers"
+	NicifyText = False
+
+# <WavesCompleted>k__BackingField
+Position: $root:0
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _onWavesCleared
+Position: $root:1
++ [Sirenix.OdinInspector.LabelTextAttribute]
+	Text = "On Waves Completed"
+	NicifyText = False
+
+# _spawnPointCheckDistance
+Position: $root:5

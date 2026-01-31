@@ -1,0 +1,10 @@
+OVDF v1.0
+intheclouds.CollapsablePlatform, Assembly-CSharp
+
+# _shaking
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _collapsed
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]

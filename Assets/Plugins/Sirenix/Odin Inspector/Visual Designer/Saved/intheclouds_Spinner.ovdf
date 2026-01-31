@@ -1,0 +1,17 @@
+OVDF v1.0
+intheclouds.Spinner, Assembly-CSharp
+
+# $97Ubim8jwsmtu9RL52BGNZ
+Position: $root:10
++ [Sirenix.OdinInspector.ShowIfGroupAttribute]
+	VisibleIf = "@_canApplyDamage"
+	GroupName = "fefef"
+
+# _knockback
+Position: $97Ubim8jwsmtu9RL52BGNZ:2
+
+# _damageVFX
+Position: $97Ubim8jwsmtu9RL52BGNZ:1
+
+# _damageSFX
+Position: $97Ubim8jwsmtu9RL52BGNZ:0

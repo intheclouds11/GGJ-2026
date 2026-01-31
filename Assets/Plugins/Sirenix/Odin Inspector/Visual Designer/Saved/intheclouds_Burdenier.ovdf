@@ -1,0 +1,9 @@
+OVDF v1.0
+intheclouds.Burdenier, Assembly-CSharp
+
+# _patternOverride
++ [Sirenix.OdinInspector.ShowIfAttribute]
+	Condition = "@_usePatternOverride"
+
+# _projectilePatterns
+Position: $root:76

@@ -1,0 +1,66 @@
+OVDF v1.0
+intheclouds.Dasher, Assembly-CSharp
+
+# $3rXLqbtfaXtp3ZLjmuyTj3
+Position: $root:2
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $W1J5NEbQGwsN6ErzpkYfWs
+Position: $3rXLqbtfaXtp3ZLjmuyTj3:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $8HEExM2LhHRhC2aDC11jeR
+Position: $3rXLqbtfaXtp3ZLjmuyTj3:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $K8VWzfRrU3HuLbicyD8XDo
+Position: $root:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $A81eNEBCofSMB2PzchjMmi
+Position: $K8VWzfRrU3HuLbicyD8XDo:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $VhxmeH6LcdcfznHMm16oLm
+Position: $K8VWzfRrU3HuLbicyD8XDo:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $NbvU59YrzHQLdMYW1mPMUc
+Position: $root:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $4WWUCSkKdBjQ6XLRcsczTN
+Position: $NbvU59YrzHQLdMYW1mPMUc:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $6YgvwYYX1WENwHpaJxwQcD
+Position: $NbvU59YrzHQLdMYW1mPMUc:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# _maxDashes
+Position: $A81eNEBCofSMB2PzchjMmi:0
+- [Sirenix.OdinInspector.TitleAttribute]
+
+# _extraDashChance
+Position: $VhxmeH6LcdcfznHMm16oLm:0
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 119.15
+
+# _dashTriggerDistance
+Position: $4WWUCSkKdBjQ6XLRcsczTN:0
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 133.8
+
+# _dashSpeed
+Position: $6YgvwYYX1WENwHpaJxwQcD:0
+
+# _dashDuration
+Position: $W1J5NEbQGwsN6ErzpkYfWs:0
+
+# _dashRecoveryDuration
+Position: $8HEExM2LhHRhC2aDC11jeR:0
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 147.75
+
+# StartKnockbackSpin
+Position: $root:3

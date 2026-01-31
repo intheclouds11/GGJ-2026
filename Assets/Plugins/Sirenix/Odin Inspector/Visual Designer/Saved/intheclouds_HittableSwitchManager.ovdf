@@ -1,0 +1,71 @@
+OVDF v1.0
+intheclouds.HittableSwitchManager, Assembly-CSharp
+
+# $RVoCPWNoaHM4kkREwBrzFJ
+Position: $root:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $MGsf1Lj8Y2vn3Q4TNifer3
+Position: $RVoCPWNoaHM4kkREwBrzFJ:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $BmysBCPrX8jnuJi3jSrwoY
+Position: $RVoCPWNoaHM4kkREwBrzFJ:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $RVamtegt3Nc8hboUSZ39tp
+Position: $root:9
++ [Sirenix.OdinInspector.FoldoutGroupAttribute]
+	GroupName = "Debug"
+
+# $QFkzwEzA28Nk6EMhTRmRc3
+Position: $root:2
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $Md9qaNhD32j7fS7RXbLunm
+Position: $QFkzwEzA28Nk6EMhTRmRc3:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $KwhGDYDifnsyenkceQYaLS
+Position: $QFkzwEzA28Nk6EMhTRmRc3:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# _attemptsBeforeOrderHint
+Position: $BmysBCPrX8jnuJi3jSrwoY:0
++ [Sirenix.OdinInspector.ShowIfAttribute]
+	Condition = "_mustHitInOrderOfSwitchesList"
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 164.29
+
+# _mustHitInOrderOfSwitchesList
+Position: $MGsf1Lj8Y2vn3Q4TNifer3:0
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+
+# ResetSwitches
+Position: $RVamtegt3Nc8hboUSZ39tp:0
+Visibility: Shown
+
+# _orderedHitSwitchesIndex
+Position: $RVamtegt3Nc8hboUSZ39tp:1
+Visibility: Shown
+
+# _currentThrowable
+Position: $RVamtegt3Nc8hboUSZ39tp:2
+Visibility: Shown
+
+# <IgnoreHits>k__BackingField
+Position: $RVamtegt3Nc8hboUSZ39tp:3
+Visibility: Shown
+
+# _attemptCount
+Position: $KwhGDYDifnsyenkceQYaLS:0
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _flashFailHighlightsOnAllSwitches
+Position: $Md9qaNhD32j7fS7RXbLunm:0
+
+# IgnoreHits
+Position: $root:3
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]

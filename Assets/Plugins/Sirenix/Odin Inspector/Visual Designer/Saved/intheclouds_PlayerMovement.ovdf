@@ -1,0 +1,34 @@
+OVDF v1.0
+intheclouds.PlayerMovement, Assembly-CSharp
+
+# $YaNrxJ7s8Wi4w3D5cZCQZL
+Position: $root:3
++ [Sirenix.OdinInspector.FoldoutGroupAttribute]
+	GroupName = "Sliding"
+
+# _inSlideVolume
+Position: $YaNrxJ7s8Wi4w3D5cZCQZL:0
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _tooSteep
+Position: $YaNrxJ7s8Wi4w3D5cZCQZL:5
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _wasTooSteep
+Position: $YaNrxJ7s8Wi4w3D5cZCQZL:6
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _maxWalkableSlope
+Position: $YaNrxJ7s8Wi4w3D5cZCQZL:1
+
+# _minWalkableSlope
+Position: $YaNrxJ7s8Wi4w3D5cZCQZL:2
+
+# _slideSpeed
+Position: $YaNrxJ7s8Wi4w3D5cZCQZL:3
+
+# _slideLerp
+Position: $YaNrxJ7s8Wi4w3D5cZCQZL:4

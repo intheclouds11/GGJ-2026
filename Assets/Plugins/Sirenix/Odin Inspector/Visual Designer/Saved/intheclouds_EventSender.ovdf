@@ -1,0 +1,6 @@
+OVDF v1.0
+intheclouds.EventSender, Assembly-CSharp
+
+# _sendEventOnStartDelay
++ [Sirenix.OdinInspector.ShowIfAttribute]
+	Condition = "@_sendEventOnStart"

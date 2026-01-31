@@ -1,0 +1,6 @@
+OVDF v1.0
+intheclouds.TheSeeker, Assembly-CSharp
+
+# _pullSpeedLerpValue
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]

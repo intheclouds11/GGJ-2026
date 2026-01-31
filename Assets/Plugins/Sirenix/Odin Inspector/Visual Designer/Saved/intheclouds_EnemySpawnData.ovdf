@@ -1,0 +1,148 @@
+OVDF v1.0
+intheclouds.EnemySpawnData, Assembly-CSharp
+
+# $4HMKwnJFq3nQ4axtHWofwb
+Position: $ApTypfoexxtwUKW5kG3ntF:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $CojP6asD18AB2oL41UGBKD
+Position: $4HMKwnJFq3nQ4axtHWofwb:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $SpS3rCt8brhs364hzun29f
+Position: $4HMKwnJFq3nQ4axtHWofwb:2
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $BZWVjbYMv1jKyDb6zqyYtt
+Position: $root:1
++ [Sirenix.OdinInspector.BoxGroupAttribute]
+	ShowLabel = False
+	CenterLabel = False
+	LabelText = ""
+	VisibleIf = "@!Disabled"
+
+# $JAjZp2iJ22tXV7u7zzYedN
+Position: $46mPkrBiMV2FMLn3CAwzTN:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $BEr1W8U8rYMMvDvDAQpuX5
+Position: $JAjZp2iJ22tXV7u7zzYedN:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $N6LMM7M4bWN9BDVS7NNiYH
+Position: $JAjZp2iJ22tXV7u7zzYedN:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $PvXC5CW3TNJToZQtZcAoMa
+Position: $JAjZp2iJ22tXV7u7zzYedN:2
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $6Yx5Wft8dSXJtELHGPQUQP
+Position: $BZWVjbYMv1jKyDb6zqyYtt:1
++ [Sirenix.OdinInspector.TitleGroupAttribute]
+	GroupName = "Spawning"
+	Alignment = Left
+	Indent = False
+
+# $KU12MfQLQd7Y7UBrnW9ka3
+Position: $BZWVjbYMv1jKyDb6zqyYtt:0
++ [Sirenix.OdinInspector.TitleGroupAttribute]
+	GroupName = "Enemy"
+	Indent = False
+	Alignment = Left
+
+# $46mPkrBiMV2FMLn3CAwzTN
+Position: $KU12MfQLQd7Y7UBrnW9ka3:1
++ [Sirenix.OdinInspector.ShowIfGroupAttribute]
+	VisibleIf = "@EnemySpawner"
+
+# $ApTypfoexxtwUKW5kG3ntF
+Position: $6Yx5Wft8dSXJtELHGPQUQP:1
++ [Sirenix.OdinInspector.ShowIfGroupAttribute]
+	VisibleIf = "@SpawnPoint"
+
+# $XaHf1pBQnHDmhCxQmkQd9W
+Position: $4HMKwnJFq3nQ4axtHWofwb:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# AttackPriority
+Position: $BEr1W8U8rYMMvDvDAQpuX5:0
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 91.3
++ [Sirenix.OdinInspector.LabelTextAttribute]
+	Text = "Priority"
++ [Sirenix.OdinInspector.IndentAttribute]
+	IndentLevel = 3
+
+# SpawnCooldown
+Position: $SpS3rCt8brhs364hzun29f:0
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 62.4
++ [Sirenix.OdinInspector.PropertyTooltipAttribute]
+	Tooltip = "Delay length for next spawn"
++ [Sirenix.OdinInspector.LabelTextAttribute]
+	Text = "Cooldown"
+
+# SpawnAnimatorSpeed
+Position: $CojP6asD18AB2oL41UGBKD:0
++ [Sirenix.OdinInspector.LabelTextAttribute]
+	Text = "Spawn Speed"
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 100
++ [Sirenix.OdinInspector.PropertyTooltipAttribute]
+	Tooltip = "Spawn Animator speed"
++ [Sirenix.OdinInspector.IndentAttribute]
+
+# WaitUntilAllDefeated
+Position: $XaHf1pBQnHDmhCxQmkQd9W:0
+- [Sirenix.OdinInspector.HideIfAttribute]
++ [Sirenix.OdinInspector.LabelTextAttribute]
+	Text = "Wait For All Defeated"
++ [Sirenix.OdinInspector.PropertyTooltipAttribute]
+	Tooltip = "Don't spawn until all enemies defeated"
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 127.3
+
+# EnemySpawner
+Position: $KU12MfQLQd7Y7UBrnW9ka3:0
++ [Sirenix.OdinInspector.LabelTextAttribute]
+	Text = "Spawner"
+	NicifyText = False
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 57.8
+
+# SpawnPoint
+Position: $6Yx5Wft8dSXJtELHGPQUQP:0
++ [Sirenix.OdinInspector.PropertyTooltipAttribute]
+	Tooltip = "SpawnPoint"
++ [Sirenix.OdinInspector.SceneObjectsOnlyAttribute]
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 79.73
+
+# Disabled
+Position: $root:0
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 47.5
++ [Sirenix.OdinInspector.LabelTextAttribute]
+	Text = "Disable"
+
+# AggroRange
+Position: $N6LMM7M4bWN9BDVS7NNiYH:0
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 65.58
++ [Sirenix.OdinInspector.IndentAttribute]
+	IndentLevel = -1
+
+# CustomAggroRange
+Position: $7RjZB17Ecc15zXXBXnKkbj:0
++ [Sirenix.OdinInspector.IndentAttribute]
+	IndentLevel = -1
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 109.37
+
+# AggroSpeed
+Position: $PvXC5CW3TNJToZQtZcAoMa:0
++ [Sirenix.OdinInspector.LabelWidthAttribute]
+	Width = 78.92
++ [Sirenix.OdinInspector.LabelTextAttribute]
+	Text = "Move Speed"

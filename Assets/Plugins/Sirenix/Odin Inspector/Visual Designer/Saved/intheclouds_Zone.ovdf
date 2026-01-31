@@ -1,0 +1,7 @@
+OVDF v1.0
+intheclouds.Zone, Assembly-CSharp
+
+# FixChildrenNames
++ [Sirenix.OdinInspector.InfoBoxAttribute]
+	InfoMessageType = Warning
+	Message = "This updates Checkpoint, SpawnPoint, and WaveManager names. Changing SpawnPoint names could break saves!"

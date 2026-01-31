@@ -1,0 +1,38 @@
+OVDF v1.0
+intheclouds.CheckpointTrigger, Assembly-CSharp
+
+# $GT5TW7AmRMeaJKtEaNwdyk
+Position: $root:22
++ [Sirenix.OdinInspector.TitleGroupAttribute]
+	GroupName = "Base Setup"
+
+# _waveManagerComplete
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# _waveManager
++ [Sirenix.OdinInspector.ShowIfAttribute]
+	Condition = "@_waitForWavesCompleted"
+
+# ToggleBlocker(bool toggle, bool disableRenderer)
+Position: $root:0
+* [Sirenix.OdinInspector.ButtonAttribute]
+	Expanded = False
+
+# _treeHighlight
+Position: $GT5TW7AmRMeaJKtEaNwdyk:5
+
+# _spawnPoint
+Position: $GT5TW7AmRMeaJKtEaNwdyk:4
+
+# _barrier
+Position: $GT5TW7AmRMeaJKtEaNwdyk:3
+
+# _disableBarrierPitch
+Position: $GT5TW7AmRMeaJKtEaNwdyk:2
+
+# _disableBarrierVolume
+Position: $GT5TW7AmRMeaJKtEaNwdyk:1
+
+# _disableBarrierSFX
+Position: $GT5TW7AmRMeaJKtEaNwdyk:0

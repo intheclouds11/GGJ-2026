@@ -1,0 +1,35 @@
+OVDF v1.0
+intheclouds.BaseEnemy, Assembly-CSharp
+
+# $HJVpUWjy6tQHzJ163LGUcJ
+Position: $root:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $83qHj9P1iGqztj8ZrWrsR7
+Position: $HJVpUWjy6tQHzJ163LGUcJ:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $WnKWeCqpZor53AJhV1CAXx
+Position: $HJVpUWjy6tQHzJ163LGUcJ:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# Wandering
+Position: $root:14
+Visibility: Shown
++ [Sirenix.OdinInspector.ReadOnlyAttribute]
+
+# ForceAggro
+Position: $83qHj9P1iGqztj8ZrWrsR7:0
+Visibility: Shown
++ [Sirenix.OdinInspector.ButtonAttribute]
++ [Sirenix.OdinInspector.DisableInEditorModeAttribute]
+
+# StartKnockbackSpin
+Position: $WnKWeCqpZor53AJhV1CAXx:0
++ [Sirenix.OdinInspector.DisableInEditorModeAttribute]
+
+# _onDamaged
+Position: $root:2
+
+# _onDefeated
+Position: $root:1
