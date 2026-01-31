@@ -53,7 +53,8 @@ MonoBehaviour:
   MaxDistance: 30
   HitForce: 2
   HitStunDuration: 1
-  DiedVFX: {fileID: 0}
+  DeflectedSpeedMultiplier: 2
+  DiedVFX: {fileID: 2003360800441772912}
 --- !u!33 &563599236304756198
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -154,7 +155,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1001 &2514359168903214355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -212,6 +213,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b404f93eb1535bf44a2fd17d5758318d, type: 3}
+--- !u!198 &2003360800441772912 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4118984271186550371, guid: b404f93eb1535bf44a2fd17d5758318d, type: 3}
+  m_PrefabInstance: {fileID: 2514359168903214355}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8153710939052519245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6035668688890878558, guid: b404f93eb1535bf44a2fd17d5758318d, type: 3}

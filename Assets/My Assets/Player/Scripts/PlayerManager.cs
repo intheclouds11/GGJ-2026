@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -11,10 +13,15 @@ namespace intheclouds
         [Title("Attack")]
         [SerializeField]
         private float _attackRadius = 2f;
+        [SerializeField]
+        private float _attackDuration = 0.5f;
         private Collider[] _hitCols = new Collider[5];
         [SerializeField]
         private Animator _attackAnimator;
-        
+
+        [Title("Health")]
+        public ScreenShakeSettings DamagedScreenShakeSettings;
+
         [SerializeField]
         private float _distToTriggerFootstep = 2f;
         public InputManager Inputs { get; private set; }
@@ -22,6 +29,7 @@ namespace intheclouds
 
         private float _distMovedSinceLastFootstep;
         private Vector3 _lastPosition;
+        private Coroutine _attackCoroutine;
 
 
         private void Awake()
@@ -41,8 +49,21 @@ namespace intheclouds
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                _attackAnimator.SetTrigger("Attack");
-                
+                if (_attackCoroutine != null) StopCoroutine(_attackCoroutine);
+                _attackCoroutine = StartCoroutine(AttackCoroutine());
+            }
+
+            // todo: footstep logic
+            _lastPosition = transform.position;
+        }
+
+        private IEnumerator AttackCoroutine()
+        {
+            _attackAnimator.SetTrigger("Attack");
+
+            var startTime = Time.time;
+            while (Time.time < startTime + _attackDuration)
+            {
                 var hitCount = Physics.OverlapSphereNonAlloc(Controller.playerCamera.transform.position, _attackRadius, _hitCols,
                     LayerMask.GetMask("Enemy"));
                 if (hitCount > 0)
@@ -58,18 +79,20 @@ namespace intheclouds
                         }
                         else if (hitProjectile)
                         {
-                            hitProjectile.Deflect();
+                            hitProjectile.DeflectToSpawner(true);
                         }
                     }
                 }
+
+                yield return null;
             }
 
-            // todo: footstep logic
-            _lastPosition = transform.position;
+            _attackCoroutine = null;
         }
 
         public void TakeDamage(Projectile projectile, Vector3 hitDir)
         {
+            CameraShakeController.Instance.StartShake(DamagedScreenShakeSettings);
             Controller.OnDamaged(projectile, hitDir);
         }
     }
