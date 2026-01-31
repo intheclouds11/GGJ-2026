@@ -4,6 +4,7 @@
 //
 // "Enable/Disable Headbob, Changed look rotations - should result in reduced camera jitters" || version 1.0.1
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using intheclouds;
@@ -203,8 +204,25 @@ public class FirstPersonController : MonoBehaviour
 
     float camRotation;
 
+    private float _remainingStunDuration;
+
+    public void OnDamaged(Projectile projectile, Vector3 hitDir)
+    {
+        if (projectile.HitStunDuration > 0f)
+            _remainingStunDuration = projectile.HitStunDuration;
+
+        rb.linearVelocity = Vector3.zero;
+        rb.AddForce(hitDir.normalized * projectile.HitForce, ForceMode.Impulse);
+    }
+
     private void Update()
     {
+        if (_remainingStunDuration > 0f)
+        {
+            _remainingStunDuration -= Time.deltaTime;
+            if (_remainingStunDuration < 0f) _remainingStunDuration = 0f;
+        }
+        
         #region Camera
 
         // Control camera movement
@@ -372,7 +390,7 @@ public class FirstPersonController : MonoBehaviour
     {
         #region Movement
 
-        if (playerCanMove)
+        if (playerCanMove && _remainingStunDuration <= 0f)
         {
             // Calculate how fast we should be moving
             Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -447,7 +465,7 @@ public class FirstPersonController : MonoBehaviour
                 }
                 else if (isGrounded)
                 {
-                    rb.linearVelocity = Vector3.zero;
+                    rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
                 }
             }
         }
