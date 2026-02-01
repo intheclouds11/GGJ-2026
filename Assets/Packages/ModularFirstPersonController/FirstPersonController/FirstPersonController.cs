@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using intheclouds;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +23,7 @@ public class FirstPersonController : MonoBehaviour
 
     #region Camera Movement Variables
 
-    public Camera playerCamera;
+    public CinemachineCamera playerCamera;
 
     public float fov = 60f;
     public bool invertCamera = false;
@@ -142,7 +143,7 @@ public class FirstPersonController : MonoBehaviour
         crosshairObject = GetComponentInChildren<Image>();
 
         // Set internal variables
-        playerCamera.fieldOfView = fov;
+        playerCamera.Lens.FieldOfView = fov;
         originalScale = transform.localScale;
         jointOriginalPos = joint.localPosition;
 
@@ -282,11 +283,11 @@ public class FirstPersonController : MonoBehaviour
             // Lerps camera.fieldOfView to allow for a smooth transistion
             if (isZoomed)
             {
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
+                playerCamera.Lens.FieldOfView = Mathf.Lerp(playerCamera.Lens.FieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
             }
             else if (!isZoomed && !isSprinting)
             {
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, fov, zoomStepTime * Time.deltaTime);
+                playerCamera.Lens.FieldOfView = Mathf.Lerp(playerCamera.Lens.FieldOfView, fov, zoomStepTime * Time.deltaTime);
             }
         }
 
@@ -301,7 +302,7 @@ public class FirstPersonController : MonoBehaviour
             if (isSprinting)
             {
                 isZoomed = false;
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
+                playerCamera.Lens.FieldOfView = Mathf.Lerp(playerCamera.Lens.FieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
 
                 // Drain sprint remaining while sprinting
                 if (!unlimitedSprint)
@@ -601,8 +602,8 @@ public class FirstPersonControllerEditor : Editor
             GUILayout.ExpandWidth(true));
         EditorGUILayout.Space();
 
-        fpc.playerCamera = (Camera) EditorGUILayout.ObjectField(new GUIContent("Camera", "Camera attached to the controller."),
-            fpc.playerCamera, typeof(Camera), true);
+        fpc.playerCamera = (CinemachineCamera) EditorGUILayout.ObjectField(new GUIContent("CinemachineCamera", "Camera attached to the controller."),
+            fpc.playerCamera, typeof(CinemachineCamera), true);
         fpc.fov = EditorGUILayout.Slider(
             new GUIContent("Field of View", "The camera’s view angle. Changes the player camera directly."), fpc.fov, fpc.zoomFOV,
             179f);

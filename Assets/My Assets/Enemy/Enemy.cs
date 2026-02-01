@@ -3,6 +3,7 @@ using System.Collections;
 using intheclouds;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Utils;
 
 public class Enemy : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
     public int Health = 2;
     public bool IsAlive = true;
     public ParticleSystem DiedVFX;
+    public ScreenShakeSettings DamagedScreenShakeSettings;
 
     private PlayerManager _player;
     private Coroutine _aggroCoroutine;
@@ -53,6 +55,7 @@ public class Enemy : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log($"Fire!", this);
             var projectile = Instantiate(ProjectilePrefab, ProjectileSpawnPoint.position, ProjectileSpawnPoint.rotation);
             projectile.Init(this);
             yield return new WaitForSeconds(FireRate);
@@ -61,6 +64,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        CameraShakeController.Instance.StartShake(DamagedScreenShakeSettings);
         Debug.Log($"Enemy hit!", this);
         Health -= damage;
         if (Health <= 0)
@@ -85,5 +89,13 @@ public class Enemy : MonoBehaviour
     {
         StopCoroutine(_aggroCoroutine);
         _aggroCoroutine = null;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        var startColor = Gizmos.color;
+        Gizmos.color = Color.yellow;
+        GizmosExtensions.DrawWireSphere(transform.position, AggroRange);
+        Gizmos.color = startColor;
     }
 }

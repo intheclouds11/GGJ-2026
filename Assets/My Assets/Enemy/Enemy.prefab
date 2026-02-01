@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1171011355771216265}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.16, z: 1.47}
+  m_LocalPosition: {x: 0, y: 0.16, z: 1.719}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,16 +78,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b709f73ba5fb72747aefb09db9bc9ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AggroRange: 8
-  AggroCancelRange: 12
+  AggroRange: 15
+  AggroCancelRange: 20
   RotateSpeed: 100
   FireRate: 1
-  FireSpeed: 5
+  FireSpeed: 10
   ProjectileSpawnPoint: {fileID: 7672988789199095266}
   ProjectilePrefab: {fileID: 6405976460605443238, guid: 33bd2462abaf4494a82851edc2078098, type: 3}
   Health: 2
   IsAlive: 1
   DiedVFX: {fileID: 7693003901898776000}
+  DamagedScreenShakeSettings:
+    Amplitude: 2
+    Frequency: 0.15
+    UpDuration: 0
+    DownDuration: 1
+    UpEasing: 0
+    DownEasing: 12
+    VirtualCam: {fileID: 0}
 --- !u!1001 &7693151786691773915
 PrefabInstance:
   m_ObjectHideFlags: 0
