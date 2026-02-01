@@ -54,7 +54,7 @@ namespace intheclouds
         private void Awake()
         {
             Instance = this;
-            DontDestroyOnLoad(transform.root);
+            // DontDestroyOnLoad(transform.root);
         }
 
         private void Update()
