@@ -5119,11 +5119,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoot:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1086938939
+      Data2: 1326540090
+      Data3: -1192565883
+      Data4: -1565970995
+    Path: event:/SFX/Projectile Launched
+  enemyHit:
+    Guid:
+      Data1: -1128431036
+      Data2: 1144521271
+      Data3: 330515123
+      Data4: 1644406787
+    Path: event:/SFX/Enemy Hit
   AggroRange: 15
   AggroCancelRange: 20
   RotateSpeed: 100
