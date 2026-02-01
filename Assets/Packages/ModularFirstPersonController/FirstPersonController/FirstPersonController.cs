@@ -28,6 +28,7 @@ public class FirstPersonController : MonoBehaviour
     [Header("FMOD Player SFX")]
     [SerializeField] private EventReference hitEvent;
     [SerializeField] private EventReference jumpEvent;
+    [SerializeField] private EventReference jumpPadTriggeredEvent;
 
     #region Camera Movement Variables
 
@@ -73,9 +74,7 @@ public class FirstPersonController : MonoBehaviour
     public float groundedDistance = 1f;
     public float groundedSphereRadius = 0.5f;
     public float normalLandingAirTime = 0.1f;
-    public AudioClip normalLandingSFX;
     public float hardLandingAirTime = 2f;
-    public AudioClip hardLandingSFX;
 
     private CapsuleCollider _playerCol;
 
@@ -226,7 +225,6 @@ public class FirstPersonController : MonoBehaviour
 
     public void OnDamaged(Projectile projectile, Vector3 hitDir)
     {
-
         //sound
         RuntimeManager.PlayOneShot(hitEvent, transform.position);
 
@@ -236,6 +234,14 @@ public class FirstPersonController : MonoBehaviour
 
         rb.linearVelocity = Vector3.zero;
         rb.AddForce(hitDir.normalized * projectile.HitForce, ForceMode.Impulse);
+    }
+
+    public void OnEnteredJumpPad(float jumpPadPower)
+    {
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        rb.AddForce(0f, jumpPadPower, 0f, ForceMode.Impulse);
+
+        RuntimeManager.PlayOneShot(jumpPadTriggeredEvent, transform.position);
     }
 
     private void Update()
@@ -563,8 +569,6 @@ public class FirstPersonController : MonoBehaviour
     public bool _coyoteTimeJumped;
     private float _airTime;
 
-    
-
 
     private void TryJump()
     {
@@ -583,7 +587,7 @@ public class FirstPersonController : MonoBehaviour
             _landedSinceLastJump = false;
             _jumpBufferTimer = 0f;
             _lastGroundedTime = -Mathf.Infinity;
-            rb.linearVelocity = Vector3.zero;
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
             rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
             isGrounded = false;
 

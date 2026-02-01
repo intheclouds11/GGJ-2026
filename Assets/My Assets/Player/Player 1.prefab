@@ -285,6 +285,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae29e90679f7c644a758bc7f7232a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deflectEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _attackRadius: 1.5
   _attackDuration: 0.25
   _attackAnimator: {fileID: 5335570766416787639}
@@ -309,6 +316,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90ba6530d9bfda47abb4610956b2f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEvent:
+    Guid:
+      Data1: 233353758
+      Data2: 1110018216
+      Data3: 740846225
+      Data4: 1728821386
+    Path: event:/SFX/Player Hit
+  jumpEvent:
+    Guid:
+      Data1: 1248538525
+      Data2: 1329780902
+      Data3: 1224696754
+      Data4: 1560961112
+    Path: event:/SFX/Jump
+  jumpPadTriggeredEvent:
+    Guid:
+      Data1: 1248538525
+      Data2: 1329780902
+      Data3: 1224696754
+      Data4: 1560961112
+    Path: event:/SFX/Jump
   playerCamera: {fileID: 6774424821193065156}
   fov: 70
   invertCamera: 0
@@ -330,9 +358,7 @@ MonoBehaviour:
   groundedDistance: 0.51
   groundedSphereRadius: 0.5
   normalLandingAirTime: 0.1
-  normalLandingSFX: {fileID: 0}
   hardLandingAirTime: 2
-  hardLandingSFX: {fileID: 0}
   enableSprint: 0
   unlimitedSprint: 0
   sprintKey: 304
@@ -377,6 +403,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d9f2013ebe5c3419f9e4403f46ab40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maskSwitch:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  musicEmitter: {fileID: 0}
+  actionMusicEmitterGo: {fileID: 0}
 --- !u!114 &3837268980735069793
 MonoBehaviour:
   m_ObjectHideFlags: 0
