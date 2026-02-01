@@ -57,7 +57,7 @@ public class Projectile : MonoBehaviour
 
     private void OnMaskSwapped(MaskManager.MaskType newMask)
     {
-        if (newMask is MaskManager.MaskType.None)
+        if (newMask is MaskManager.MaskType.NoMask)
         {
             ProjectileObjects.SetActive(false);
             PlatformObjects.SetActive(false);

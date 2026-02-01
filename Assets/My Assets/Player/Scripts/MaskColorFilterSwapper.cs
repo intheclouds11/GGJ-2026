@@ -55,7 +55,7 @@ public class MaskColorFilterSwapper : MonoBehaviour
 
     public void OnMaskSwapped(MaskManager.MaskType newMask)
     {
-        if (newMask is MaskManager.MaskType.None)
+        if (newMask is MaskManager.MaskType.NoMask)
         {
             OnNoMaskEquipped();
         }

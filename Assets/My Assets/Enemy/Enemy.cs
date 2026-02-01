@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
     {
         CancelAggro();
 
-        if (newMask is MaskManager.MaskType.None)
+        if (newMask is MaskManager.MaskType.NoMask)
         {
             EnemyObjects.SetActive(false);
             PlatformObjects.SetActive(false);

@@ -7,12 +7,13 @@ using UnityEngine.InputSystem;
 
 public class MaskManager : MonoBehaviour
 {
+    [Flags]
     public enum MaskType
     {
-        None,
-        Enemy,
-        Platforms,
-        Pickups
+        NoMask = 1 << 0,
+        Enemy = 1 << 1,
+        Platforms = 1 << 2,
+        Pickups= 1 << 3
     }
 
     [SerializeField] private StudioEventEmitter musicEmitter;
@@ -27,7 +28,7 @@ public class MaskManager : MonoBehaviour
 
         switch (maskType)
         {
-            case MaskType.None:
+            case MaskType.NoMask:
                 maskOnValue = 0f;
                 enemyMaskValue = 0f;
                 break;
@@ -76,14 +77,14 @@ public class MaskManager : MonoBehaviour
         if (!musicEmitter.IsPlaying())
             musicEmitter.Play();
         
-        SwapToMask(MaskType.None, true);
+        SwapToMask(MaskType.NoMask, true);
     }
 
     private void Update()
     {
         if (Keyboard.current.numpad0Key.wasPressedThisFrame)
         {
-            SwapToMask(MaskType.None);
+            SwapToMask(MaskType.NoMask);
         }
         else if (Keyboard.current.numpad1Key.wasPressedThisFrame)
         {
