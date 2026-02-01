@@ -16,6 +16,10 @@ public class MaskManager : MonoBehaviour
         Pickups= 1 << 3
     }
 
+    //sound
+    [Header("FMOD Player SFX")]
+    [SerializeField] private EventReference maskSwitch;
+
     [SerializeField] private StudioEventEmitter musicEmitter;
     [SerializeField] private GameObject actionMusicEmitterGo;
     
@@ -85,18 +89,26 @@ public class MaskManager : MonoBehaviour
         if (Keyboard.current.numpad0Key.wasPressedThisFrame)
         {
             SwapToMask(MaskType.NoMask);
+
+            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
         }
         else if (Keyboard.current.numpad1Key.wasPressedThisFrame)
         {
             SwapToMask(MaskType.Enemy);
+
+            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
         }
         else if (Keyboard.current.numpad2Key.wasPressedThisFrame)
         {
             SwapToMask(MaskType.Platforms);
+
+            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
         }
         else if (Keyboard.current.numpad3Key.wasPressedThisFrame)
         {
             SwapToMask(MaskType.Pickups);
+
+            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
         }
     }
 

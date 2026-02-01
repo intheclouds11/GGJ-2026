@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639055437323855872
+  lastModified: 639055522799031171
   FileSizes:
   - Name: Desktop
-    Value: 493696
+    Value: 549120
   Exists: 1
 --- !u!114 &-6822976136717540595
 MonoBehaviour:
@@ -130,6 +130,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 21333
+--- !u!114 &-5082649622158826045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Mask switch
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Mask switch
+  Guid:
+    Data1: 2048662976
+    Data2: 1305261989
+    Data3: -462632015
+    Data4: -1042788952
+  Banks:
+  - {fileID: -7847514039719863606}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4846678388634680692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,13 +269,14 @@ MonoBehaviour:
   - {fileID: 1963208677915379561}
   - {fileID: -6822976136717540595}
   - {fileID: -6561592709461768856}
+  - {fileID: -5082649622158826045}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4365449914990376376}
   StringsBanks:
   - {fileID: 161097179409009392}
   cacheVersion: 131858
-  cacheTime: 639055437323855872
+  cacheTime: 639055524715432647
   SerializableEventsDict:
   - key: event:/Enemy music/Enemy Music Master
     index: 0
@@ -276,6 +304,8 @@ MonoBehaviour:
     index: 11
   - key: event:/SFX/Jump
     index: 12
+  - key: event:/SFX/Mask switch
+    index: 13
 --- !u!114 &161097179409009392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,10 +321,10 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639055437322984242
+  lastModified: 639055522798466988
   FileSizes:
   - Name: Desktop
-    Value: 1560
+    Value: 1602
   Exists: 1
 --- !u!114 &438949826786681418
 MonoBehaviour:
@@ -467,7 +497,7 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639055437322974202
+  lastModified: 639055522798457033
   FileSizes:
   - Name: Desktop
     Value: 1074
@@ -543,7 +573,7 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/Swift's Music Bank.bank
   Name: Swift's Music Bank
   StudioPath: bank:/Swift's Music Bank
-  lastModified: 639055120460053547
+  lastModified: 639055524715432647
   FileSizes:
   - Name: Desktop
     Value: 3658944

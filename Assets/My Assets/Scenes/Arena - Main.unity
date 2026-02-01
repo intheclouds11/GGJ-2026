@@ -1373,9 +1373,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 906719727}
     - target: {fileID: 1726961496942994691, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: maskSwitch.Path
+      value: event:/SFX/Mask switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726961496942994691, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: actionMusicEmitterGo
       value: 
       objectReference: {fileID: 38544527}
+    - target: {fileID: 1726961496942994691, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: maskSwitch.Guid.Data1
+      value: 2048662976
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726961496942994691, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: maskSwitch.Guid.Data2
+      value: 1305261989
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726961496942994691, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: maskSwitch.Guid.Data3
+      value: -462632015
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726961496942994691, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: maskSwitch.Guid.Data4
+      value: -1042788952
+      objectReference: {fileID: 0}
     - target: {fileID: 4719282875617350522, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: m_Name
       value: Player 1
