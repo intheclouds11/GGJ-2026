@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using FMODUnity;
 using intheclouds;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,7 +14,57 @@ public class MaskManager : MonoBehaviour
         Platforms,
         Pickups
     }
+
+    [SerializeField] private StudioEventEmitter musicEmitter;
+    [SerializeField] private GameObject actionMusicEmitterGo;
     
+
+    private void SetmaskParameters(MaskType maskType)
+    {
+        float maskOnValue;
+        float enemyMaskValue;
+
+
+        switch (maskType)
+        {
+            case MaskType.None:
+                maskOnValue = 0f;
+                enemyMaskValue = 0f;
+                break;
+
+            case MaskType.Platforms:
+                maskOnValue = 1f;
+                enemyMaskValue = 0f;
+                break;
+
+            case MaskType.Enemy:
+                maskOnValue = 1f;
+                enemyMaskValue = 1f;
+                break;
+
+            case MaskType.Pickups:
+                maskOnValue = 1f;
+                enemyMaskValue = 2f;
+                break;
+
+            default:
+                maskOnValue = 0f;
+                enemyMaskValue = 0f;
+                break;
+
+
+
+        }
+
+        musicEmitter.EventInstance.setParameterByName("MaskON", maskOnValue);
+        musicEmitter.EventInstance.setParameterByName("EnemyMask", enemyMaskValue);
+
+        
+
+    }
+
+
+
     public MaskType EquippedMask { get; private set; }
     public event Action<MaskType> SwappedMask;
 
@@ -21,6 +72,9 @@ public class MaskManager : MonoBehaviour
     private IEnumerator Start()
     {
         yield return null;
+
+        if (!musicEmitter.IsPlaying())
+            musicEmitter.Play();
         
         SwapToMask(MaskType.None, true);
     }
@@ -54,6 +108,24 @@ public class MaskManager : MonoBehaviour
         }
         
         EquippedMask = newMask;
+
+        SetmaskParameters(newMask);
+
+        if (newMask == MaskType.Pickups)
+        {
+            if (!actionMusicEmitterGo.activeSelf)
+                actionMusicEmitterGo.SetActive(true);
+
+        }
+        else
+        {
+            if(actionMusicEmitterGo.activeSelf)
+               actionMusicEmitterGo.SetActive(false);
+
+        }
+        
+
+
         SwappedMask?.Invoke(newMask);
     }
 }
