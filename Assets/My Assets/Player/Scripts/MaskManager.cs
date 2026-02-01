@@ -13,7 +13,7 @@ public class MaskManager : MonoBehaviour
         NoMask = 1 << 0,
         Enemy = 1 << 1,
         Platforms = 1 << 2,
-        Pickups= 1 << 3
+        Pickups = 1 << 3
     }
 
     //sound
@@ -22,7 +22,7 @@ public class MaskManager : MonoBehaviour
 
     [SerializeField] private StudioEventEmitter musicEmitter;
     [SerializeField] private GameObject actionMusicEmitterGo;
-    
+
 
     private void SetmaskParameters(MaskType maskType)
     {
@@ -56,18 +56,11 @@ public class MaskManager : MonoBehaviour
                 maskOnValue = 0f;
                 enemyMaskValue = 0f;
                 break;
-
-
-
         }
 
         musicEmitter.EventInstance.setParameterByName("MaskON", maskOnValue);
         musicEmitter.EventInstance.setParameterByName("EnemyMask", enemyMaskValue);
-
-        
-
     }
-
 
 
     public MaskType EquippedMask { get; private set; }
@@ -80,35 +73,26 @@ public class MaskManager : MonoBehaviour
 
         if (!musicEmitter.IsPlaying())
             musicEmitter.Play();
-        
+
         SwapToMask(MaskType.NoMask, true);
     }
 
     private void Update()
     {
-        if (Keyboard.current.numpad0Key.wasPressedThisFrame)
+        if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             SwapToMask(MaskType.NoMask);
-
-            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
         }
-        else if (Keyboard.current.numpad1Key.wasPressedThisFrame)
+        else if (Keyboard.current.qKey.wasPressedThisFrame)
         {
-            SwapToMask(MaskType.Enemy);
-
-            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
-        }
-        else if (Keyboard.current.numpad2Key.wasPressedThisFrame)
-        {
-            SwapToMask(MaskType.Platforms);
-
-            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
+            if (EquippedMask is MaskType.NoMask) SwapToMask(MaskType.Pickups);
+            else if (EquippedMask is MaskType.Enemy) SwapToMask(MaskType.NoMask);
+            else if (EquippedMask is MaskType.Platforms) SwapToMask(MaskType.Enemy);
+            else if (EquippedMask is MaskType.Pickups) SwapToMask(MaskType.Platforms);
         }
         else if (Keyboard.current.numpad3Key.wasPressedThisFrame)
         {
             SwapToMask(MaskType.Pickups);
-
-            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
         }
     }
 
@@ -119,7 +103,7 @@ public class MaskManager : MonoBehaviour
             Debug.LogWarning($"[MaskManager] EquippedMask is already {newMask}");
             return;
         }
-        
+
         EquippedMask = newMask;
 
         SetmaskParameters(newMask);
@@ -128,15 +112,12 @@ public class MaskManager : MonoBehaviour
         {
             if (!actionMusicEmitterGo.activeSelf)
                 actionMusicEmitterGo.SetActive(true);
-
         }
         else
         {
-            if(actionMusicEmitterGo.activeSelf)
-               actionMusicEmitterGo.SetActive(false);
-
+            if (actionMusicEmitterGo.activeSelf)
+                actionMusicEmitterGo.SetActive(false);
         }
-        
 
 
         SwappedMask?.Invoke(newMask);

@@ -55,7 +55,7 @@ namespace intheclouds
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !PauseMenu.Instance.IsPaused)
             {
                 if (_attackCoroutine != null) StopCoroutine(_attackCoroutine);
                 _attackCoroutine = StartCoroutine(AttackCoroutine());
