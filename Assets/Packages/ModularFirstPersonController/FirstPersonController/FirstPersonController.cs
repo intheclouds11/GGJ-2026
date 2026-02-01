@@ -226,8 +226,14 @@ public class FirstPersonController : MonoBehaviour
         if (_remainingStunDuration > 0f)
         {
             _remainingStunDuration -= Time.deltaTime;
-            if (_remainingStunDuration < 0f) _remainingStunDuration = 0f;
         }
+
+        if (_jumpBufferTimer > 0f)
+        {
+            _jumpBufferTimer -= Time.deltaTime;
+        }
+        
+        CheckGround();
 
         #region Camera
 
@@ -357,6 +363,11 @@ public class FirstPersonController : MonoBehaviour
         // Gets input and calls jump method
         if (enableJump && Input.GetKeyDown(jumpKey))
         {
+            _jumpBufferTimer = _jumpBufferTime;
+        }
+
+        if (_jumpBufferTimer > 0f)
+        {
             TryJump();
         }
 
@@ -385,7 +396,6 @@ public class FirstPersonController : MonoBehaviour
 
         #endregion
 
-        CheckGround();
 
         if (enableHeadBob)
         {
@@ -483,22 +493,14 @@ public class FirstPersonController : MonoBehaviour
     // Sets isGrounded based on a raycast sent straigth down from the player object
     private void CheckGround()
     {
-        Vector3 origin = new Vector3(transform.position.x, transform.position.y - (transform.localScale.y * .5f),
-            transform.position.z);
-        // Vector3 direction = transform.TransformDirection(Vector3.down);
         Vector3 direction = Vector3.down;
-
-        if (_justJumped)
-        {
-            _justJumped = false;
-            return;
-        }
 
         if (Physics.SphereCast(transform.position, groundedSphereRadius, direction, out RaycastHit hit, groundedDistance))
         {
             Debug.DrawRay(transform.position, direction * groundedDistance, Color.red);
             isGrounded = true;
             _lastGroundedTime = Time.time;
+            _landedSinceLastJump = true;
         }
         else
         {
@@ -507,24 +509,36 @@ public class FirstPersonController : MonoBehaviour
     }
 
     private float _lastGroundedTime;
+    private float _jumpBufferTimer;
+    private bool _landedSinceLastJump;
+    public float _jumpBufferTime = 0.2f;
     public float _coyoteTime = 0.2f;
-    private bool _justJumped;
+    public bool _coyoteTimeJumped;
 
     private void TryJump()
     {
-        // Adds force to the player rigidbody to jump
-        if (rb.linearVelocity.y <= 0f && (isGrounded || (!isGrounded && Time.time < _lastGroundedTime + _coyoteTime)))
+        if (_remainingStunDuration > 0f || !_landedSinceLastJump) return;
+
+        _coyoteTimeJumped = !isGrounded && Time.time < _lastGroundedTime + _coyoteTime;
+        if (isGrounded || _coyoteTimeJumped)
         {
+            // Debug.LogError("JUMP");
+            _landedSinceLastJump = false;
+            _jumpBufferTimer = 0f;
+            _lastGroundedTime = -Mathf.Infinity;
             rb.linearVelocity = Vector3.zero;
             rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
             isGrounded = false;
-            _justJumped = true;
             
             // When crouched and using toggle system, will uncrouch for a jump
             if (isCrouched && !holdToCrouch)
             {
                 Crouch();
             }
+        }
+        else
+        {
+            // Debug.Log("failed jump");
         }
     }
 
@@ -712,6 +726,9 @@ public class FirstPersonControllerEditor : Editor
         
         fpc.groundedSphereRadius =
             EditorGUILayout.FloatField(new GUIContent("Grounded Sphere Radius"), fpc.groundedSphereRadius);
+        
+        fpc._jumpBufferTime =
+            EditorGUILayout.FloatField(new GUIContent("Jump Buffer"), fpc._jumpBufferTime);
         
         fpc.isGrounded =
             EditorGUILayout.ToggleLeft(new GUIContent("Is Grounded"), fpc.isGrounded);

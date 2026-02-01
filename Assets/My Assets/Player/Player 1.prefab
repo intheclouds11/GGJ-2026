@@ -356,7 +356,9 @@ MonoBehaviour:
   joint: {fileID: 4861910629076607133}
   bobSpeed: 10
   bobAmount: {x: 0, y: 0.01, z: 0}
+  _jumpBufferTime: 0.1
   _coyoteTime: 0.5
+  _coyoteTimeJumped: 0
 --- !u!114 &1726961496942994691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _noMaskVignette: 0.25
-  _maskEquippedVignetteIntensity: 0.5
+  _maskEquippedVignetteIntensity: 0.4
   _noMaskColor: {r: 1, g: 1, b: 1, a: 1}
   _enemyMaskColor: {r: 1, g: 0.7075472, b: 0.7075472, a: 1}
   _platformsMaskColor: {r: 0.745283, g: 0.832842, b: 1, a: 1}

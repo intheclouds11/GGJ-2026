@@ -68,7 +68,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        bool destroy = false;
         var playerHit = other.GetComponentInParent<PlayerManager>();
         var enemyHit = other.GetComponentInParent<Enemy>();
         var projectileHit = other.GetComponentInParent<Projectile>();
@@ -77,23 +76,17 @@ public class Projectile : MonoBehaviour
             var hitDir = other.transform.position - transform.position;
             hitDir.y = 0f;
             playerHit.TakeDamage(this, hitDir.normalized);
-            destroy = true;
         }
         else if (enemyHit)
         {
             enemyHit.TakeDamage(Damage);
-            destroy = true;
         }
         else if (projectileHit && _playerDeflected)
         {
             projectileHit.DeflectToSpawner();
-            destroy = true;
         }
 
-        if (destroy)
-        {
-            DestroyProjectile();
-        }
+        DestroyProjectile();
     }
 
     private void DestroyProjectile()

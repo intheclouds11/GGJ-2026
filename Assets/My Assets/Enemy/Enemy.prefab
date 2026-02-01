@@ -81,7 +81,7 @@ MonoBehaviour:
   AggroRange: 15
   AggroCancelRange: 20
   RotateSpeed: 100
-  FireRate: 1
+  FireRate: 1.5
   FireSpeed: 10
   ProjectileSpawnPoint: {fileID: 7672988789199095266}
   ProjectilePrefab: {fileID: 6405976460605443238, guid: 33bd2462abaf4494a82851edc2078098, type: 3}
