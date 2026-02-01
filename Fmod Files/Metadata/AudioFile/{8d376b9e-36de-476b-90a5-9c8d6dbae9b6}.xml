@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{8d376b9e-36de-476b-90a5-9c8d6dbae9b6}">
+		<property name="assetPath">
+			<value>Enemy music/bad flute 3.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>10.666666666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6e19baf2-7a2a-4dc3-9d2f-ed5af32ee405}</destination>
+		</relationship>
+	</object>
+</objects>

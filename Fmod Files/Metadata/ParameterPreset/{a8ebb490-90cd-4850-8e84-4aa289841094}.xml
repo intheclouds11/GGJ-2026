@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{a8ebb490-90cd-4850-8e84-4aa289841094}">
+		<property name="name">
+			<value>MaskON</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e9401ee9-8ddc-481a-bbaa-7479c0e6a07e}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{528eba6d-e07d-4e09-872e-64c3b0efa4d6}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{528eba6d-e07d-4e09-872e-64c3b0efa4d6}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{792c6cdb-62fa-460b-84a2-3f28ae4bba60}</destination>
+		</relationship>
+	</object>
+	<object class="SeekModulator" id="{792c6cdb-62fa-460b-84a2-3f28ae4bba60}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>cursorPosition</value>
+		</property>
+		<property name="speedAscending">
+			<value>0.5</value>
+		</property>
+	</object>
+</objects>
