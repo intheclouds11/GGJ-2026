@@ -117,11 +117,11 @@ public class Enemy : MonoBehaviour
             PlatformObjects.SetActive(false);
             if (_noMaskParticles)
             {
-                _noMaskParticles.GetComponent<ParticleSystemRenderer>().enabled = false;
+                _noMaskParticles.GetComponent<ParticleSystemRenderer>().enabled = true;
             }
             else
             {
-                NoMaskObjects.SetActive(false);
+                NoMaskObjects.SetActive(true);
             }
         }
     }
@@ -188,6 +188,8 @@ public class Enemy : MonoBehaviour
 
         CancelAggro();
         gameObject.SetActive(false);
+        
+        // todo: Respawn after set time
     }
 
     private void CancelAggro()

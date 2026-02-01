@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639055573388797590
+  lastModified: 639055594534991532
   FileSizes:
   - Name: Desktop
     Value: 584000
@@ -358,7 +358,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 161097179409009392}
   cacheVersion: 131858
-  cacheTime: 639055578439017185
+  cacheTime: 639055594535117439
   SerializableEventsDict:
   - key: event:/Enemy music/Enemy Music Master
     index: 0
@@ -403,7 +403,7 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639055573382071354
+  lastModified: 639055594534941216
   FileSizes:
   - Name: Desktop
     Value: 1692
@@ -579,7 +579,7 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639055573382029916
+  lastModified: 639055389244766498
   FileSizes:
   - Name: Desktop
     Value: 1074
@@ -679,7 +679,7 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/Swift's Music Bank.bank
   Name: Swift's Music Bank
   StudioPath: bank:/Swift's Music Bank
-  lastModified: 639055578439017185
+  lastModified: 639055594535117439
   FileSizes:
   - Name: Desktop
     Value: 3663488
