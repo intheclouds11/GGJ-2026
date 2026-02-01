@@ -49,6 +49,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpPadPower: 12
+  jump:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: event:/SFX/Jump pad
 --- !u!33 &3615595569137842446
 MeshFilter:
   m_ObjectHideFlags: 0

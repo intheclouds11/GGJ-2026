@@ -1594,6 +1594,10 @@ PrefabInstance:
       value: 1728821386
       objectReference: {fileID: 0}
     - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: playerAttack.Path
+      value: event:/SFX/Player Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: deflectEvent.Guid.Data1
       value: -1217055610
       objectReference: {fileID: 0}
@@ -1608,6 +1612,22 @@ PrefabInstance:
     - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: deflectEvent.Guid.Data4
       value: -2125285509
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: playerAttack.Guid.Data1
+      value: 2071050875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: playerAttack.Guid.Data2
+      value: 1166310223
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: playerAttack.Guid.Data3
+      value: 1811332248
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: playerAttack.Guid.Data4
+      value: -1990098314
       objectReference: {fileID: 0}
     - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: jumpPower
@@ -2135,6 +2155,10 @@ PrefabInstance:
       value: event:/SFX/Projectile Launched
       objectReference: {fileID: 0}
     - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: enemyHit.Path
+      value: event:/SFX/Enemy Hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
       propertyPath: shoot.Guid.Data1
       value: 1086938939
       objectReference: {fileID: 0}
@@ -2149,6 +2173,22 @@ PrefabInstance:
     - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
       propertyPath: shoot.Guid.Data4
       value: -1565970995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: enemyHit.Guid.Data1
+      value: -1128431036
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: enemyHit.Guid.Data2
+      value: 1144521271
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: enemyHit.Guid.Data3
+      value: 330515123
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: enemyHit.Guid.Data4
+      value: 1644406787
       objectReference: {fileID: 0}
     - target: {fileID: 3627295352093482453, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
       propertyPath: m_IsActive

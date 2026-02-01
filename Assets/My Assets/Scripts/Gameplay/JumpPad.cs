@@ -1,13 +1,15 @@
 using System;
 using intheclouds;
 using UnityEngine;
+using FMODUnity;
+
 
 public class JumpPad : MonoBehaviour
 {
     public float JumpPadPower = 10f;
 
     //sound
-    [Header("FMOD Player SFX")]
+    
     [SerializeField] private EventReference jump;
 
 
