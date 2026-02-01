@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8647788622091098038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Jump pad
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Jump pad
+  Guid:
+    Data1: -436793622
+    Data2: 1075944890
+    Data3: -485266504
+    Data4: 972989945
+  Banks:
+  - {fileID: -7847514039719863606}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-7847514039719863606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +42,34 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639055522799031171
+  lastModified: 639055573388797590
   FileSizes:
   - Name: Desktop
-    Value: 549120
+    Value: 584000
+  Exists: 1
+--- !u!114 &-6967921261192222044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Action music 2/EnemyMask
+  m_EditorClassIdentifier: 
+  Name: EnemyMask
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2865035777
+    data2: 3757986773
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-6822976136717540595
 MonoBehaviour:
@@ -238,6 +289,35 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-1549307061744844453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Action music 2
+  m_EditorClassIdentifier: 
+  Path: event:/Action music 2
+  Guid:
+    Data1: 1018145785
+    Data2: 1164261795
+    Data3: 330989741
+    Data4: 588533724
+  Banks:
+  - {fileID: 6770383393924663765}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -6967921261192222044}
+  - {fileID: 6586270078392843490}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5333
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,13 +350,15 @@ MonoBehaviour:
   - {fileID: -6822976136717540595}
   - {fileID: -6561592709461768856}
   - {fileID: -5082649622158826045}
+  - {fileID: -8647788622091098038}
+  - {fileID: -1549307061744844453}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4365449914990376376}
   StringsBanks:
   - {fileID: 161097179409009392}
   cacheVersion: 131858
-  cacheTime: 639055524715432647
+  cacheTime: 639055578439017185
   SerializableEventsDict:
   - key: event:/Enemy music/Enemy Music Master
     index: 0
@@ -321,10 +403,10 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639055522798466988
+  lastModified: 639055573382071354
   FileSizes:
   - Name: Desktop
-    Value: 1602
+    Value: 1692
   Exists: 1
 --- !u!114 &438949826786681418
 MonoBehaviour:
@@ -497,7 +579,7 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639055522798457033
+  lastModified: 639055573382029916
   FileSizes:
   - Name: Desktop
     Value: 1074
@@ -558,6 +640,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 222816
+--- !u!114 &6586270078392843490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Action music 2/MaskON
+  m_EditorClassIdentifier: 
+  Name: MaskON
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3558823952
+    data2: 2840661280
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &6770383393924663765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,10 +679,10 @@ MonoBehaviour:
   Path: Fmod Files/Build/Desktop/Swift's Music Bank.bank
   Name: Swift's Music Bank
   StudioPath: bank:/Swift's Music Bank
-  lastModified: 639055524715432647
+  lastModified: 639055578439017185
   FileSizes:
   - Name: Desktop
-    Value: 3658944
+    Value: 3663488
   Exists: 1
 --- !u!114 &8178863610203321214
 MonoBehaviour:

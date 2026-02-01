@@ -119,71 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &38544527
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 38544529}
-  - component: {fileID: 38544528}
-  m_Layer: 0
-  m_Name: Action music Emitter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &38544528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38544527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -389338535
-      Data2: 1096664171
-      Data3: 1361242045
-      Data4: 1761635327
-    Path: event:/Action music
-  Event: 
-  EventPlayTrigger: 11
-  EventStopTrigger: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params:
-  - Name: EnemyMask
-    Value: 2
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!4 &38544529
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38544527}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.309679, y: 16.667276, z: 20.653446}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &62647468 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7324457467437215197, guid: 6fa9a7d9c037c07449bda0218f2285b0, type: 3}
@@ -248,34 +183,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4005968267777943661, guid: 6fa9a7d9c037c07449bda0218f2285b0, type: 3}
---- !u!1 &392626800 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5808192305683561969, guid: 6fa9a7d9c037c07449bda0218f2285b0, type: 3}
-  m_PrefabInstance: {fileID: 793360174}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &392626804
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392626800}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -867267645066950023, guid: 6fa9a7d9c037c07449bda0218f2285b0, type: 3}
-  m_Mesh: {fileID: -4005968267777943661, guid: 6fa9a7d9c037c07449bda0218f2285b0, type: 3}
 --- !u!1 &390619903 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4719282875617350522, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
@@ -312,6 +219,33 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 127
   stepInterval: 0.5
+--- !u!1 &392626800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5808192305683561969, guid: 6fa9a7d9c037c07449bda0218f2285b0, type: 3}
+  m_PrefabInstance: {fileID: 793360174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &392626804
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392626800}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -867267645066950023, guid: 6fa9a7d9c037c07449bda0218f2285b0, type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,7 +1548,7 @@ PrefabInstance:
     - target: {fileID: 1726961496942994691, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: actionMusicEmitterGo
       value: 
-      objectReference: {fileID: 38544527}
+      objectReference: {fileID: 0}
     - target: {fileID: 1726961496942994691, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: maskSwitch.Guid.Data1
       value: 2048662976
@@ -1635,12 +1569,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
-      propertyPath: jumpPower
-      value: 6
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: getHit.Path
+      value: event:/SFX/Player Hit
+      objectReference: {fileID: 0}
     - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: deflectEvent.Path
       value: event:/SFX/Player Deflect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: getHit.Guid.Data1
+      value: 233353758
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: getHit.Guid.Data2
+      value: 1110018216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: getHit.Guid.Data3
+      value: 740846225
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: getHit.Guid.Data4
+      value: 1728821386
       objectReference: {fileID: 0}
     - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: deflectEvent.Guid.Data1
@@ -1657,6 +1608,10 @@ PrefabInstance:
     - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: deflectEvent.Guid.Data4
       value: -2125285509
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: jumpPower
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: hitEvent.Path
@@ -2175,13 +2130,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3627295352093482453, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676188600686074382, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
-      propertyPath: m_IsActive
-      value: 0
     - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
       propertyPath: shoot.Path
       value: event:/SFX/Projectile Launched
@@ -2201,6 +2149,14 @@ PrefabInstance:
     - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
       propertyPath: shoot.Guid.Data4
       value: -1565970995
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627295352093482453, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676188600686074382, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6020853191979399765, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2383,4 +2339,3 @@ SceneRoots:
   - {fileID: 1943054044}
   - {fileID: 1842456569}
   - {fileID: 906719728}
-  - {fileID: 38544529}

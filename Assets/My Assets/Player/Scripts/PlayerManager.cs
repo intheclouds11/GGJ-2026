@@ -13,6 +13,8 @@ namespace intheclouds
 
         //Sounds stuff
         [SerializeField] private EventReference deflectEvent;
+        [SerializeField] private EventReference getHit;
+        [SerializeField] private EventReference playerAttack;
 
         [Title("Attack")]
         [SerializeField]
@@ -57,8 +59,14 @@ namespace intheclouds
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) && !PauseMenu.Instance.IsPaused)
             {
+                
+
                 if (_attackCoroutine != null) StopCoroutine(_attackCoroutine);
                 _attackCoroutine = StartCoroutine(AttackCoroutine());
+
+                RuntimeManager.PlayOneShot(playerAttack, transform.position);
+
+
             }
 
             // todo: footstep logic
@@ -106,6 +114,11 @@ namespace intheclouds
         {
             CameraShakeController.Instance.StartShake(DamagedScreenShakeSettings);
             Controller.OnDamaged(projectile, hitDir);
+
+            RuntimeManager.PlayOneShot(getHit, transform.position);
+
+
+
         }
     }
 }

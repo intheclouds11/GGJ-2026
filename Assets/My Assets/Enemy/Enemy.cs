@@ -11,8 +11,9 @@ public class Enemy : MonoBehaviour
 {
 
     //sound
-    [Header("FMOD Player SFX")]
+    
     [SerializeField] private EventReference shoot;
+    [SerializeField] private EventReference enemyHit;
 
 
     public float AggroRange = 8f;
@@ -166,6 +167,9 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         CameraShakeController.Instance.StartShake(DamagedScreenShakeSettings);
+
+        RuntimeManager.PlayOneShot(enemyHit, transform.position);
+
         // Debug.Log($"Enemy hit!", this);
         Health -= damage;
         if (Health <= 0)

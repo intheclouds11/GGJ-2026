@@ -103,7 +103,7 @@ public class MaskManager : MonoBehaviour
             return;
         }
 
-        RuntimeManager.PlayOneShot(maskSwitch, transform.position);
+        
 
         EquippedMask = newMask;
 
