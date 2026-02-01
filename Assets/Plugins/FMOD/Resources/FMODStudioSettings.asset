@@ -536,8 +536,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../Fmod projects/GGJ_2026/GGJ_2026.fspro
-  sourceBankPath: ../../Fmod projects/GGJ_2026/Build
+  sourceProjectPath: Fmod Files/GGJ_2026.fspro
+  sourceBankPath: Fmod Files/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
