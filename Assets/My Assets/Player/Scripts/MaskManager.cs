@@ -81,21 +81,17 @@ public class MaskManager : MonoBehaviour
     {
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
-            SwapToMask(MaskType.NoMask);
-            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
+            if (EquippedMask is MaskType.NoMask) SwapToMask(MaskType.Enemy);
+            else if (EquippedMask is MaskType.Enemy) SwapToMask(MaskType.Platforms);
+            else if (EquippedMask is MaskType.Platforms) SwapToMask(MaskType.Pickups);
+            else if (EquippedMask is MaskType.Pickups) SwapToMask(MaskType.NoMask);
         }
         else if (Keyboard.current.qKey.wasPressedThisFrame)
         {
-            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
             if (EquippedMask is MaskType.NoMask) SwapToMask(MaskType.Pickups);
             else if (EquippedMask is MaskType.Enemy) SwapToMask(MaskType.NoMask);
             else if (EquippedMask is MaskType.Platforms) SwapToMask(MaskType.Enemy);
             else if (EquippedMask is MaskType.Pickups) SwapToMask(MaskType.Platforms);
-        }
-        else if (Keyboard.current.numpad3Key.wasPressedThisFrame)
-        {
-            SwapToMask(MaskType.Pickups);
-            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
         }
     }
 
@@ -106,6 +102,8 @@ public class MaskManager : MonoBehaviour
             Debug.LogWarning($"[MaskManager] EquippedMask is already {newMask}");
             return;
         }
+
+        RuntimeManager.PlayOneShot(maskSwitch, transform.position);
 
         EquippedMask = newMask;
 
