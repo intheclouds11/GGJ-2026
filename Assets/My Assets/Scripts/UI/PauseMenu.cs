@@ -74,6 +74,7 @@ namespace intheclouds
 
         public void OpenMenu()
         {
+            Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
             IsPaused = true;
             EventSystem.current.SetSelectedGameObject(_defaultButton);
@@ -83,6 +84,8 @@ namespace intheclouds
 
         public void ResumeGame(bool allowInputs = true)
         {
+            Time.timeScale = 1f;
+            
             Cursor.lockState = CursorLockMode.Locked;
 
             IsPaused = false;

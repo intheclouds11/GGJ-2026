@@ -5128,6 +5128,7 @@ MonoBehaviour:
   FireSpeed: 10
   ProjectileSpawnPoint: {fileID: 7672988789199095266}
   ProjectilePrefab: {fileID: 6912950396458726739, guid: bfe637f3b2fb58a419b37faed0de4986, type: 3}
+  FireShakeRotation: {fileID: 8656751959984685552}
   Health: 2
   IsAlive: 1
   DiedVFX: {fileID: 7693003901898776000}
@@ -5222,6 +5223,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9b59aaea07d6aad40b240331e2eec610, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4093795830721563132}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9b59aaea07d6aad40b240331e2eec610, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8656751959984685552}
   m_SourcePrefab: {fileID: 100100000, guid: 9b59aaea07d6aad40b240331e2eec610, type: 3}
 --- !u!1 &7350711439887300746 stripped
 GameObject:
@@ -5250,6 +5254,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6329158148709259305, guid: 9b59aaea07d6aad40b240331e2eec610, type: 3}
+--- !u!114 &8656751959984685552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350711439887300746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73111e78fc3c5d478da26875a903caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0.6
+  _strength: 15
+  _vibrato: 10
+  _randomness: 90
+  _fadeOut: 1
+  _randomnessMode: 0
+  _snapToStartLocalRot: 1
 --- !u!4 &7874871290569531952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9b59aaea07d6aad40b240331e2eec610, type: 3}

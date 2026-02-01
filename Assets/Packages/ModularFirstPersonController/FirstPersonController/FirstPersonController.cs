@@ -240,6 +240,11 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.Instance.IsPaused)
+        {
+            return;
+        }
+
         if (_remainingStunDuration > 0f)
         {
             _remainingStunDuration -= Time.deltaTime;
@@ -249,7 +254,7 @@ public class FirstPersonController : MonoBehaviour
         {
             _jumpBufferTimer -= Time.deltaTime;
         }
-        
+
         if (_jumpCooldownTimer > 0f)
         {
             _jumpCooldownTimer -= Time.deltaTime;
@@ -523,7 +528,7 @@ public class FirstPersonController : MonoBehaviour
         Vector3 direction = Vector3.down;
 
         if (Physics.SphereCast(transform.position, groundedSphereRadius, direction, out RaycastHit hit, groundedDistance))
-        // if (Physics.Raycast(transform.position, direction, out RaycastHit hit, groundedDistance))
+            // if (Physics.Raycast(transform.position, direction, out RaycastHit hit, groundedDistance))
         {
             Debug.DrawRay(transform.position, direction * groundedDistance, Color.red);
             isGrounded = true;

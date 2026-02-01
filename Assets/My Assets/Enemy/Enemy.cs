@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     public float FireSpeed = 2f;
     public Transform ProjectileSpawnPoint;
     public Projectile ProjectilePrefab;
+    public ShakeRotation FireShakeRotation;
 
     [Title("Health")]
     public int Health = 2;
@@ -155,6 +156,7 @@ public class Enemy : MonoBehaviour
             RuntimeManager.PlayOneShot(shoot, transform.position);
 
             // Debug.Log($"Fire!", this);
+            FireShakeRotation?.StartShake();
             var projectile = Instantiate(ProjectilePrefab, ProjectileSpawnPoint.position, ProjectileSpawnPoint.rotation);
             projectile.Init(this);
             yield return new WaitForSeconds(FireRate);
@@ -190,6 +192,7 @@ public class Enemy : MonoBehaviour
         {
             StopCoroutine(_aggroCoroutine);
             _aggroCoroutine = null;
+            FireShakeRotation?.StopShake();
         }
     }
 
