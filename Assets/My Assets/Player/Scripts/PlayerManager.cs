@@ -26,6 +26,8 @@ namespace intheclouds
         private float _distToTriggerFootstep = 2f;
         public InputManager Inputs { get; private set; }
         public FirstPersonController Controller { get; private set; }
+        public MaskColorFilterSwapper MaskColorFilterSwapper { get; private set; }
+        public MaskManager MaskManager { get; private set; }
 
         private float _distMovedSinceLastFootstep;
         private Vector3 _lastPosition;
@@ -43,6 +45,8 @@ namespace intheclouds
             Instance = this;
             Inputs = InputManager.Instance;
             Controller = GetComponent<FirstPersonController>();
+            MaskColorFilterSwapper = GetComponent<MaskColorFilterSwapper>();
+            MaskManager = GetComponent<MaskManager>();
         }
 
         private void Update()

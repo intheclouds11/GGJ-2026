@@ -51,8 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   MaxDistance: 30
-  HitForce: 2
-  HitStunDuration: 1
+  HitForce: 5
+  HitStunDuration: 0.5
   DeflectedSpeedMultiplier: 2
   DiedVFX: {fileID: 2003360800441772912}
 --- !u!33 &563599236304756198

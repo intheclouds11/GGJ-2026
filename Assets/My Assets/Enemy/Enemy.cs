@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log($"Fire!", this);
+            // Debug.Log($"Fire!", this);
             var projectile = Instantiate(ProjectilePrefab, ProjectileSpawnPoint.position, ProjectileSpawnPoint.rotation);
             projectile.Init(this);
             yield return new WaitForSeconds(FireRate);
@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         CameraShakeController.Instance.StartShake(DamagedScreenShakeSettings);
-        Debug.Log($"Enemy hit!", this);
+        // Debug.Log($"Enemy hit!", this);
         Health -= damage;
         if (Health <= 0)
         {

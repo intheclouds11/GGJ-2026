@@ -244,6 +244,8 @@ GameObject:
   - component: {fileID: 8100924186101035152}
   - component: {fileID: 4879434841434762605}
   - component: {fileID: 6809730718562309618}
+  - component: {fileID: 1726961496942994691}
+  - component: {fileID: 3837268980735069793}
   - component: {fileID: 3842878915622272129}
   - component: {fileID: 4496657885265740798}
   - component: {fileID: 2868106544330181432}
@@ -325,6 +327,8 @@ MonoBehaviour:
   playerCanMove: 1
   walkSpeed: 5
   maxVelocityChange: 5
+  groundedDistance: 0.5
+  groundedSphereRadius: 0.5
   enableSprint: 0
   unlimitedSprint: 0
   sprintKey: 304
@@ -342,6 +346,7 @@ MonoBehaviour:
   enableJump: 1
   jumpKey: 32
   jumpPower: 8
+  isGrounded: 0
   enableCrouch: 0
   holdToCrouch: 1
   crouchKey: 306
@@ -351,6 +356,39 @@ MonoBehaviour:
   joint: {fileID: 4861910629076607133}
   bobSpeed: 10
   bobAmount: {x: 0, y: 0.01, z: 0}
+  _jumpBufferTime: 0.1
+  _coyoteTime: 0.5
+  _coyoteTimeJumped: 0
+--- !u!114 &1726961496942994691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4719282875617350522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d9f2013ebe5c3419f9e4403f46ab40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3837268980735069793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4719282875617350522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a151808e5aa73741ad6b04d3bbe8502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _noMaskVignette: 0.25
+  _maskEquippedVignetteIntensity: 0.4
+  _noMaskColor: {r: 1, g: 1, b: 1, a: 1}
+  _enemyMaskColor: {r: 1, g: 0.7075472, b: 0.7075472, a: 1}
+  _platformsMaskColor: {r: 0.745283, g: 0.832842, b: 1, a: 1}
+  _pickupsMaskColor: {r: 0.7306303, g: 1, b: 0.65471697, a: 1}
 --- !u!54 &3842878915622272129
 Rigidbody:
   m_ObjectHideFlags: 0
