@@ -1,13 +1,20 @@
-using System;
-using System.Collections;
+using FMODUnity;
 using intheclouds;
 using Sirenix.OdinInspector;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utils;
 
 public class Enemy : MonoBehaviour
 {
+
+    //sound
+    [Header("FMOD Player SFX")]
+    [SerializeField] private EventReference shoot;
+
+
     public float AggroRange = 8f;
     public float AggroCancelRange = 12f;
     public float RotateSpeed = 100f;
@@ -144,6 +151,9 @@ public class Enemy : MonoBehaviour
     {
         while (true)
         {
+            //sound
+            RuntimeManager.PlayOneShot(shoot, transform.position);
+
             // Debug.Log($"Fire!", this);
             var projectile = Instantiate(ProjectilePrefab, ProjectileSpawnPoint.position, ProjectileSpawnPoint.rotation);
             projectile.Init(this);

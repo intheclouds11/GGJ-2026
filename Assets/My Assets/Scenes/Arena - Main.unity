@@ -329,6 +329,42 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4005968267777943661, guid: 6fa9a7d9c037c07449bda0218f2285b0, type: 3}
+--- !u!1 &390619903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4719282875617350522, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+  m_PrefabInstance: {fileID: 1842456569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &390619913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390619903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260a9b2a32fbca0438c0276c9c0d0485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepEvent:
+    Guid:
+      Data1: -46605551
+      Data2: 1140159266
+      Data3: 1372208041
+      Data4: 988054192
+    Path: event:/SFX/Player FootStep
+  landEvent:
+    Guid:
+      Data1: -879301519
+      Data2: 1196817778
+      Data3: 1490190495
+      Data4: -60415945
+    Path: event:/SFX/Player Landing
+  groundCheckDistance: 0.3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 127
+  stepInterval: 0.5
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,6 +1380,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: deflectEvent.Path
+      value: event:/SFX/Player Deflect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: deflectEvent.Guid.Data1
+      value: -1217055610
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: deflectEvent.Guid.Data2
+      value: 1179841184
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: deflectEvent.Guid.Data3
+      value: -1970883187
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879434841434762605, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: deflectEvent.Guid.Data4
+      value: -2125285509
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: hitEvent.Path
+      value: event:/SFX/Player Hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: jumpEvent.Path
+      value: event:/SFX/Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: hitEvent.Guid.Data1
+      value: 233353758
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: hitEvent.Guid.Data2
+      value: 1110018216
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: hitEvent.Guid.Data3
+      value: 740846225
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: hitEvent.Guid.Data4
+      value: 1728821386
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: jumpEvent.Guid.Data1
+      value: 1248538525
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: jumpEvent.Guid.Data2
+      value: 1329780902
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: jumpEvent.Guid.Data3
+      value: 1224696754
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809730718562309618, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      propertyPath: jumpEvent.Guid.Data4
+      value: 1560961112
+      objectReference: {fileID: 0}
     - target: {fileID: 8100924186101035152, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.96
@@ -1387,7 +1483,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4719282875617350522, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 390619913}
   m_SourcePrefab: {fileID: 100100000, guid: bbe28e9b071217d4fb0d8af6b95cfd1d, type: 3}
 --- !u!1 &1943054039
 GameObject:
@@ -1845,6 +1944,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: shoot.Path
+      value: event:/SFX/Projectile Launched
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: shoot.Guid.Data1
+      value: 1086938939
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: shoot.Guid.Data2
+      value: 1326540090
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: shoot.Guid.Data3
+      value: -1192565883
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129976992961586532, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
+      propertyPath: shoot.Guid.Data4
+      value: -1565970995
+      objectReference: {fileID: 0}
     - target: {fileID: 6020853191979399765, guid: a27744c3513dda94d905b116c0d1c905, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.17
