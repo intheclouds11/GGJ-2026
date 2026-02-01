@@ -82,9 +82,11 @@ public class MaskManager : MonoBehaviour
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             SwapToMask(MaskType.NoMask);
+            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
         }
         else if (Keyboard.current.qKey.wasPressedThisFrame)
         {
+            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
             if (EquippedMask is MaskType.NoMask) SwapToMask(MaskType.Pickups);
             else if (EquippedMask is MaskType.Enemy) SwapToMask(MaskType.NoMask);
             else if (EquippedMask is MaskType.Platforms) SwapToMask(MaskType.Enemy);
@@ -93,6 +95,7 @@ public class MaskManager : MonoBehaviour
         else if (Keyboard.current.numpad3Key.wasPressedThisFrame)
         {
             SwapToMask(MaskType.Pickups);
+            RuntimeManager.PlayOneShot(maskSwitch, transform.position);
         }
     }
 
