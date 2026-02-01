@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using intheclouds;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,8 +18,10 @@ public class MaskManager : MonoBehaviour
     public event Action<MaskType> SwappedMask;
 
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return null;
+        
         SwapToMask(MaskType.None, true);
     }
 
@@ -51,8 +54,6 @@ public class MaskManager : MonoBehaviour
         }
         
         EquippedMask = newMask;
-        PlayerManager.Instance.MaskColorFilterSwapper.OnMaskSwapped(newMask);
-        
         SwappedMask?.Invoke(newMask);
     }
 }

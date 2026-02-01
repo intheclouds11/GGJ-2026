@@ -3,6 +3,7 @@ using System.Collections;
 using intheclouds;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils;
 
 public class Enemy : MonoBehaviour
@@ -11,7 +12,16 @@ public class Enemy : MonoBehaviour
     public float AggroCancelRange = 12f;
     public float RotateSpeed = 100f;
 
+    [Title("Mask Swapping")]
+    public GameObject NoMaskObjects;
+    private ParticleSystem _noMaskParticles;
+    public GameObject EnemyObjects;
+    public GameObject PlatformObjects;
+
     [Title("Projectiles")]
+    [SerializeField]
+    private float _startFiringDelay = 1f;
+    private float _enemyActivatedTime;
     public float FireRate = 1f;
     public float FireSpeed = 2f;
     public Transform ProjectileSpawnPoint;
@@ -29,25 +39,104 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        if (!EnemyObjects)
+            Debug.LogWarning($"Missing EnemyObjects", this);
+        if (!PlatformObjects)
+            Debug.LogWarning($"Missing PlatformObjects", this);
+        if (!NoMaskObjects)
+            Debug.LogWarning($"Missing NoMaskObjects", this);
+        else
+        {
+            _noMaskParticles = NoMaskObjects.GetComponentInChildren<ParticleSystem>();
+            if (_noMaskParticles)
+            {
+                NoMaskObjects.SetActive(true);
+            }
+        }
+
         _player = PlayerManager.Instance;
+        PlayerManager.Instance.MaskManager.SwappedMask += OnMaskSwapped;
+    }
+
+    public void OnMaskSwapped(MaskManager.MaskType newMask)
+    {
+        CancelAggro();
+
+        if (newMask is MaskManager.MaskType.None)
+        {
+            EnemyObjects.SetActive(false);
+            PlatformObjects.SetActive(false);
+            if (_noMaskParticles)
+            {
+                _noMaskParticles.GetComponent<ParticleSystemRenderer>().enabled = true;
+            }
+            else
+            {
+                NoMaskObjects.SetActive(true);
+            }
+        }
+        else if (newMask is MaskManager.MaskType.Enemy)
+        {
+            _enemyActivatedTime = Time.time;
+            EnemyObjects.SetActive(true);
+            PlatformObjects.SetActive(false);
+            if (_noMaskParticles)
+            {
+                _noMaskParticles.GetComponent<ParticleSystemRenderer>().enabled = false;
+            }
+            else
+            {
+                NoMaskObjects.SetActive(false);
+            }
+        }
+        else if (newMask is MaskManager.MaskType.Platforms)
+        {
+            EnemyObjects.SetActive(false);
+            PlatformObjects.SetActive(true);
+            if (_noMaskParticles)
+            {
+                _noMaskParticles.GetComponent<ParticleSystemRenderer>().enabled = false;
+            }
+            else
+            {
+                NoMaskObjects.SetActive(false);
+            }
+        }
+        else if (newMask is MaskManager.MaskType.Pickups)
+        {
+            EnemyObjects.SetActive(false);
+            PlatformObjects.SetActive(false);
+            if (_noMaskParticles)
+            {
+                _noMaskParticles.GetComponent<ParticleSystemRenderer>().enabled = false;
+            }
+            else
+            {
+                NoMaskObjects.SetActive(false);
+            }
+        }
     }
 
     private void Update()
     {
+        if (PlayerManager.Instance.MaskManager.EquippedMask is not MaskManager.MaskType.Enemy)
+            return;
+
         var distToPlayer = Vector3.Distance(transform.position, _player.transform.position);
 
-        if (_aggroCoroutine == null && distToPlayer <= AggroRange)
+        if (_aggroCoroutine == null && distToPlayer <= AggroRange && Time.time >= _enemyActivatedTime + _startFiringDelay)
         {
             _aggroCoroutine = StartCoroutine(AggroCoroutine());
         }
-        else if (_aggroCoroutine != null)
+
+        if (distToPlayer <= AggroRange)
         {
             var targetRot = Quaternion.LookRotation(transform.DirectionTo(_player.Controller.playerCamera));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, RotateSpeed * Time.deltaTime);
-            if (distToPlayer >= AggroCancelRange)
-            {
-                CancelAggro();
-            }
+        }
+        else if (distToPlayer >= AggroCancelRange)
+        {
+            CancelAggro();
         }
     }
 
@@ -87,8 +176,11 @@ public class Enemy : MonoBehaviour
 
     private void CancelAggro()
     {
-        StopCoroutine(_aggroCoroutine);
-        _aggroCoroutine = null;
+        if (_aggroCoroutine != null)
+        {
+            StopCoroutine(_aggroCoroutine);
+            _aggroCoroutine = null;
+        }
     }
 
     private void OnDrawGizmosSelected()

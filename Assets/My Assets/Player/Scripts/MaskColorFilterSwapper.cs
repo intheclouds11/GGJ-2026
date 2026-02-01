@@ -1,4 +1,5 @@
 using System;
+using intheclouds;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -40,6 +41,16 @@ public class MaskColorFilterSwapper : MonoBehaviour
         _globalVolume.profile.TryGet(out _vignette);
 
         OnNoMaskEquipped();
+    }
+
+    private void Start()
+    {
+        PlayerManager.Instance.MaskManager.SwappedMask += OnMaskSwapped;
+    }
+
+    private void OnDisable()
+    {
+        PlayerManager.Instance.MaskManager.SwappedMask -= OnMaskSwapped;
     }
 
     public void OnMaskSwapped(MaskManager.MaskType newMask)

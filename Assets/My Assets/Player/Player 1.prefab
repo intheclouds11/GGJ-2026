@@ -327,8 +327,12 @@ MonoBehaviour:
   playerCanMove: 1
   walkSpeed: 5
   maxVelocityChange: 5
-  groundedDistance: 0.5
+  groundedDistance: 0.51
   groundedSphereRadius: 0.5
+  normalLandingAirTime: 0.1
+  normalLandingSFX: {fileID: 0}
+  hardLandingAirTime: 2
+  hardLandingSFX: {fileID: 0}
   enableSprint: 0
   unlimitedSprint: 0
   sprintKey: 304
@@ -357,6 +361,8 @@ MonoBehaviour:
   bobSpeed: 10
   bobAmount: {x: 0, y: 0.01, z: 0}
   _jumpBufferTime: 0.1
+  _jumpCooldown: 0.5
+  _jumpCooldownTimer: 0
   _coyoteTime: 0.5
   _coyoteTimeJumped: 0
 --- !u!114 &1726961496942994691
