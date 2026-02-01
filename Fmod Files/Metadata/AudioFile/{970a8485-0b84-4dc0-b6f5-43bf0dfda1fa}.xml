@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{970a8485-0b84-4dc0-b6f5-43bf0dfda1fa}">
+		<property name="assetPath">
+			<value>SFX/Deflect 3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.0546875</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6e19baf2-7a2a-4dc3-9d2f-ed5af32ee405}</destination>
+		</relationship>
+	</object>
+</objects>

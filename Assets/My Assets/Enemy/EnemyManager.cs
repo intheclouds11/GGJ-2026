@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     public static void OnMaskSwapped(MaskManager.MaskType newMask)
     {
-        if (newMask is MaskManager.MaskType.None)
+        if (newMask is MaskManager.MaskType.NoMask)
         {
         }
         else if (newMask is MaskManager.MaskType.Enemy)
