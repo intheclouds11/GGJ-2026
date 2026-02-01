@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{194a7508-52ab-4327-b810-7ad16d2701ec}">
+		<property name="assetPath">
+			<value>Chill music/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6e19baf2-7a2a-4dc3-9d2f-ed5af32ee405}</destination>
+		</relationship>
+	</object>
+</objects>
