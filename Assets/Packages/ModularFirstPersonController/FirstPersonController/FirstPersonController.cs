@@ -4,9 +4,11 @@
 //
 // "Enable/Disable Headbob, Changed look rotations - should result in reduced camera jitters" || version 1.0.1
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using intheclouds;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +23,7 @@ public class FirstPersonController : MonoBehaviour
 
     #region Camera Movement Variables
 
-    public Camera playerCamera;
+    public CinemachineCamera playerCamera;
 
     public float fov = 60f;
     public bool invertCamera = false;
@@ -141,7 +143,7 @@ public class FirstPersonController : MonoBehaviour
         crosshairObject = GetComponentInChildren<Image>();
 
         // Set internal variables
-        playerCamera.fieldOfView = fov;
+        playerCamera.Lens.FieldOfView = fov;
         originalScale = transform.localScale;
         jointOriginalPos = joint.localPosition;
 
@@ -203,8 +205,25 @@ public class FirstPersonController : MonoBehaviour
 
     float camRotation;
 
+    private float _remainingStunDuration;
+
+    public void OnDamaged(Projectile projectile, Vector3 hitDir)
+    {
+        if (projectile.HitStunDuration > 0f)
+            _remainingStunDuration = projectile.HitStunDuration;
+
+        rb.linearVelocity = Vector3.zero;
+        rb.AddForce(hitDir.normalized * projectile.HitForce, ForceMode.Impulse);
+    }
+
     private void Update()
     {
+        if (_remainingStunDuration > 0f)
+        {
+            _remainingStunDuration -= Time.deltaTime;
+            if (_remainingStunDuration < 0f) _remainingStunDuration = 0f;
+        }
+        
         #region Camera
 
         // Control camera movement
@@ -264,11 +283,11 @@ public class FirstPersonController : MonoBehaviour
             // Lerps camera.fieldOfView to allow for a smooth transistion
             if (isZoomed)
             {
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
+                playerCamera.Lens.FieldOfView = Mathf.Lerp(playerCamera.Lens.FieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
             }
             else if (!isZoomed && !isSprinting)
             {
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, fov, zoomStepTime * Time.deltaTime);
+                playerCamera.Lens.FieldOfView = Mathf.Lerp(playerCamera.Lens.FieldOfView, fov, zoomStepTime * Time.deltaTime);
             }
         }
 
@@ -283,7 +302,7 @@ public class FirstPersonController : MonoBehaviour
             if (isSprinting)
             {
                 isZoomed = false;
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
+                playerCamera.Lens.FieldOfView = Mathf.Lerp(playerCamera.Lens.FieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
 
                 // Drain sprint remaining while sprinting
                 if (!unlimitedSprint)
@@ -372,7 +391,7 @@ public class FirstPersonController : MonoBehaviour
     {
         #region Movement
 
-        if (playerCanMove)
+        if (playerCanMove && _remainingStunDuration <= 0f)
         {
             // Calculate how fast we should be moving
             Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -447,7 +466,7 @@ public class FirstPersonController : MonoBehaviour
                 }
                 else if (isGrounded)
                 {
-                    rb.linearVelocity = Vector3.zero;
+                    rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
                 }
             }
         }
@@ -583,8 +602,8 @@ public class FirstPersonControllerEditor : Editor
             GUILayout.ExpandWidth(true));
         EditorGUILayout.Space();
 
-        fpc.playerCamera = (Camera) EditorGUILayout.ObjectField(new GUIContent("Camera", "Camera attached to the controller."),
-            fpc.playerCamera, typeof(Camera), true);
+        fpc.playerCamera = (CinemachineCamera) EditorGUILayout.ObjectField(new GUIContent("CinemachineCamera", "Camera attached to the controller."),
+            fpc.playerCamera, typeof(CinemachineCamera), true);
         fpc.fov = EditorGUILayout.Slider(
             new GUIContent("Field of View", "The camera’s view angle. Changes the player camera directly."), fpc.fov, fpc.zoomFOV,
             179f);
