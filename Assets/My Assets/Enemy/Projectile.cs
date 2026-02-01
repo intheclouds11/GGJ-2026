@@ -55,7 +55,7 @@ public class Projectile : MonoBehaviour
 
     public void DeflectWithDirection(Vector3 dir)
     {
-        Debug.Log($"Projectile deflected!", this);
+        // Debug.Log($"Projectile deflected!", this);
         if (!_deflected)
         {
             _deflected = true;
@@ -98,7 +98,7 @@ public class Projectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
-        Debug.Log($"Destroy projectile", this);
+        // Debug.Log($"Destroy projectile", this);
 
         if (DiedVFX)
         {

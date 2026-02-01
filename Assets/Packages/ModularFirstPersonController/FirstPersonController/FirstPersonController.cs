@@ -62,6 +62,10 @@ public class FirstPersonController : MonoBehaviour
     public bool playerCanMove = true;
     public float walkSpeed = 5f;
     public float maxVelocityChange = 10f;
+    public float groundedDistance = 1f;
+    public float groundedSphereRadius = 0.5f;
+
+    private CapsuleCollider _playerCol;
 
     // Internal Variables
     private bool isWalking = false;
@@ -103,7 +107,7 @@ public class FirstPersonController : MonoBehaviour
     public float jumpPower = 5f;
 
     // Internal Variables
-    private bool isGrounded = false;
+    public bool isGrounded = false;
 
     #endregion
 
@@ -139,6 +143,7 @@ public class FirstPersonController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        _playerCol = GetComponent<CapsuleCollider>();
 
         crosshairObject = GetComponentInChildren<Image>();
 
@@ -223,7 +228,7 @@ public class FirstPersonController : MonoBehaviour
             _remainingStunDuration -= Time.deltaTime;
             if (_remainingStunDuration < 0f) _remainingStunDuration = 0f;
         }
-        
+
         #region Camera
 
         // Control camera movement
@@ -302,7 +307,8 @@ public class FirstPersonController : MonoBehaviour
             if (isSprinting)
             {
                 isZoomed = false;
-                playerCamera.Lens.FieldOfView = Mathf.Lerp(playerCamera.Lens.FieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
+                playerCamera.Lens.FieldOfView =
+                    Mathf.Lerp(playerCamera.Lens.FieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
 
                 // Drain sprint remaining while sprinting
                 if (!unlimitedSprint)
@@ -349,9 +355,9 @@ public class FirstPersonController : MonoBehaviour
         #region Jump
 
         // Gets input and calls jump method
-        if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
+        if (enableJump && Input.GetKeyDown(jumpKey))
         {
-            Jump();
+            TryJump();
         }
 
         #endregion
@@ -479,13 +485,20 @@ public class FirstPersonController : MonoBehaviour
     {
         Vector3 origin = new Vector3(transform.position.x, transform.position.y - (transform.localScale.y * .5f),
             transform.position.z);
-        Vector3 direction = transform.TransformDirection(Vector3.down);
-        float distance = .75f;
+        // Vector3 direction = transform.TransformDirection(Vector3.down);
+        Vector3 direction = Vector3.down;
 
-        if (Physics.Raycast(origin, direction, out RaycastHit hit, distance))
+        if (_justJumped)
         {
-            Debug.DrawRay(origin, direction * distance, Color.red);
+            _justJumped = false;
+            return;
+        }
+
+        if (Physics.SphereCast(transform.position, groundedSphereRadius, direction, out RaycastHit hit, groundedDistance))
+        {
+            Debug.DrawRay(transform.position, direction * groundedDistance, Color.red);
             isGrounded = true;
+            _lastGroundedTime = Time.time;
         }
         else
         {
@@ -493,19 +506,25 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
-    private void Jump()
+    private float _lastGroundedTime;
+    public float _coyoteTime = 0.2f;
+    private bool _justJumped;
+
+    private void TryJump()
     {
         // Adds force to the player rigidbody to jump
-        if (isGrounded)
+        if (rb.linearVelocity.y <= 0f && (isGrounded || (!isGrounded && Time.time < _lastGroundedTime + _coyoteTime)))
         {
+            rb.linearVelocity = Vector3.zero;
             rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
             isGrounded = false;
-        }
-
-        // When crouched and using toggle system, will uncrouch for a jump
-        if (isCrouched && !holdToCrouch)
-        {
-            Crouch();
+            _justJumped = true;
+            
+            // When crouched and using toggle system, will uncrouch for a jump
+            if (isCrouched && !holdToCrouch)
+            {
+                Crouch();
+            }
         }
     }
 
@@ -585,15 +604,6 @@ public class FirstPersonControllerEditor : Editor
     {
         SerFPC.Update();
 
-        EditorGUILayout.Space();
-        GUILayout.Label("Modular First Person Controller",
-            new GUIStyle(GUI.skin.label) {alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 16});
-        GUILayout.Label("By Jess Case",
-            new GUIStyle(GUI.skin.label) {alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Normal, fontSize = 12});
-        GUILayout.Label("version 1.0.1",
-            new GUIStyle(GUI.skin.label) {alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Normal, fontSize = 12});
-        EditorGUILayout.Space();
-
         #region Camera Setup
 
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
@@ -602,7 +612,8 @@ public class FirstPersonControllerEditor : Editor
             GUILayout.ExpandWidth(true));
         EditorGUILayout.Space();
 
-        fpc.playerCamera = (CinemachineCamera) EditorGUILayout.ObjectField(new GUIContent("CinemachineCamera", "Camera attached to the controller."),
+        fpc.playerCamera = (CinemachineCamera) EditorGUILayout.ObjectField(
+            new GUIContent("CinemachineCamera", "Camera attached to the controller."),
             fpc.playerCamera, typeof(CinemachineCamera), true);
         fpc.fov = EditorGUILayout.Slider(
             new GUIContent("Field of View", "The camera’s view angle. Changes the player camera directly."), fpc.fov, fpc.zoomFOV,
@@ -692,6 +703,18 @@ public class FirstPersonControllerEditor : Editor
         fpc.playerCanMove =
             EditorGUILayout.ToggleLeft(new GUIContent("Enable Player Movement", "Determines if the player is allowed to move."),
                 fpc.playerCanMove);
+
+        fpc.groundedDistance =
+            EditorGUILayout.FloatField(new GUIContent("Grounded Distance"), fpc.groundedDistance);
+        
+        fpc._coyoteTime =
+            EditorGUILayout.FloatField(new GUIContent("Coyote Time"), fpc._coyoteTime);
+        
+        fpc.groundedSphereRadius =
+            EditorGUILayout.FloatField(new GUIContent("Grounded Sphere Radius"), fpc.groundedSphereRadius);
+        
+        fpc.isGrounded =
+            EditorGUILayout.ToggleLeft(new GUIContent("Is Grounded"), fpc.isGrounded);
 
         GUI.enabled = fpc.playerCanMove;
         fpc.walkSpeed = EditorGUILayout.Slider(new GUIContent("Walk Speed", "Determines how fast the player will move while walking."),

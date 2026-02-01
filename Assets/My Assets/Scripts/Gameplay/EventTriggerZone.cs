@@ -24,7 +24,6 @@ namespace intheclouds
                 return;
             }
 
-            gameObject.layer = LayerMask.NameToLayer("PlayerOnly");
             _col = GetComponent<Collider>();
             if (!_col)
             {
