@@ -1,7 +1,8 @@
+using FMODUnity;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace intheclouds
@@ -9,6 +10,9 @@ namespace intheclouds
     public class PlayerManager : MonoBehaviour
     {
         public static PlayerManager Instance;
+
+        //Sounds stuff
+        [SerializeField] private EventReference deflectEvent;
 
         [Title("Attack")]
         [SerializeField]
@@ -51,7 +55,7 @@ namespace intheclouds
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !PauseMenu.Instance.IsPaused)
             {
                 if (_attackCoroutine != null) StopCoroutine(_attackCoroutine);
                 _attackCoroutine = StartCoroutine(AttackCoroutine());
@@ -83,6 +87,10 @@ namespace intheclouds
                         }
                         else if (hitProjectile)
                         {
+                            //sound
+                            RuntimeManager.PlayOneShot(deflectEvent, transform.position);
+
+
                             hitProjectile.DeflectToSpawner(true);
                         }
                     }

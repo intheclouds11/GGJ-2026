@@ -11,6 +11,8 @@ using intheclouds;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -20,6 +22,12 @@ using System.Net;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+
+
+    //here is all the sound variables
+    [Header("FMOD Player SFX")]
+    [SerializeField] private EventReference hitEvent;
+    [SerializeField] private EventReference jumpEvent;
 
     #region Camera Movement Variables
 
@@ -218,6 +226,11 @@ public class FirstPersonController : MonoBehaviour
 
     public void OnDamaged(Projectile projectile, Vector3 hitDir)
     {
+
+        //sound
+        RuntimeManager.PlayOneShot(hitEvent, transform.position);
+
+
         if (projectile.HitStunDuration > 0f)
             _remainingStunDuration = projectile.HitStunDuration;
 
@@ -550,6 +563,9 @@ public class FirstPersonController : MonoBehaviour
     public bool _coyoteTimeJumped;
     private float _airTime;
 
+    
+
+
     private void TryJump()
     {
         if (_remainingStunDuration > 0f || !_landedSinceLastJump || _jumpCooldownTimer > 0f) return;
@@ -558,6 +574,11 @@ public class FirstPersonController : MonoBehaviour
         if (isGrounded || _coyoteTimeJumped)
         {
             Debug.Log("JUMP");
+
+            //sound
+            RuntimeManager.PlayOneShot(jumpEvent, transform.position);
+
+
             _jumpCooldownTimer = _jumpCooldown;
             _landedSinceLastJump = false;
             _jumpBufferTimer = 0f;

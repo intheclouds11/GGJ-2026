@@ -15,10 +15,6 @@ namespace intheclouds
         [SerializeField]
         private PauseMenu _pauseMenu;
         [SerializeField]
-        private GameObject _settingsMenu;
-        [SerializeField]
-        private GameObject _respawnScreen;
-        [SerializeField]
         private AudioSource _uiAudio;
         [SerializeField]
         private AudioClip _navigateSFX;
@@ -96,27 +92,21 @@ namespace intheclouds
                 {
                     _pauseMenu.OnPauseButtonPressed();
                 }
-                else if (_settingsMenu.activeInHierarchy)
-                {
-                    ExitSettingsMenu(true);
-                }
             }
         }
 
         private bool CanTogglePauseScreen()
         {
-            return SceneManager.GetActiveScene().name != "MainMenu" && !_settingsMenu.activeInHierarchy;
+            return SceneManager.GetActiveScene().name != "MainMenu";
         }
 
         public bool IsAMenuOpen()
         {
-            return _pauseMenu.PauseCanvas.enabled || _settingsMenu.activeInHierarchy ||
-                   SceneManager.GetActiveScene().name == "MainMenu";
+            return _pauseMenu.PauseCanvas.enabled || SceneManager.GetActiveScene().name == "MainMenu";
         }
 
         public void ToggleRespawnScreen(bool toggle)
         {
-            _respawnScreen.gameObject.SetActive(toggle);
         }
 
         public void Button_ResumeGame()
@@ -143,16 +133,10 @@ namespace intheclouds
                 _pauseMenu.ToggleCanvas(false);
             }
 
-            _settingsMenu.SetActive(true);
         }
 
         public void ExitPauseMenu(bool allowInputs = true)
         {
-            if (_settingsMenu.activeInHierarchy)
-            {
-                ExitSettingsMenu();
-            }
-
             _pauseMenu.ResumeGame(allowInputs);
         }
 
@@ -167,7 +151,6 @@ namespace intheclouds
                 _pauseMenu.OpenMenu();
             }
 
-            _settingsMenu.GetComponent<SettingsMenu>().OnExitSettings();
         }
 
         public void Button_ExitGame()
